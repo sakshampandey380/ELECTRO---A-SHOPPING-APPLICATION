@@ -1,0 +1,754 @@
+/* ==========================================================================
+   Electro eCommerce Store - Offers Page Stylesheet (offers-page.css)
+   100% Pure HTML5 & CSS3 - Zero JavaScript - Fully Responsive
+   Scoped with prefix: .offers-page- to prevent any CSS collision
+   ========================================================================== */
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* --------------------------------------------------------------------------
+   1. BREADCRUMBS BAR
+   -------------------------------------------------------------------------- */
+.offers-page-breadcrumbs {
+    width: 100%;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #eeeeee;
+    padding: 14px 0;
+    font-size: 13px;
+}
+
+.offers-page-breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.offers-page-breadcrumb-item a {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.offers-page-breadcrumb-item a:hover {
+    color: #e58840;
+}
+
+.offers-page-breadcrumb-sep {
+    color: #cbd5e1;
+    font-size: 11px;
+}
+
+.offers-page-breadcrumb-current {
+    color: #2b303a;
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   2. HERO / PAGE BANNER
+   -------------------------------------------------------------------------- */
+.offers-page-hero {
+    width: 100%;
+    background: linear-gradient(135deg, #2b303a 0%, #1f232b 100%);
+    color: #ffffff;
+    padding: 48px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.offers-page-hero::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(229, 136, 64, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.offers-page-hero-content {
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+}
+
+.offers-page-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(229, 136, 64, 0.2);
+    border: 1px solid rgba(229, 136, 64, 0.5);
+    color: #f6ad55;
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.offers-page-hero-title {
+    font-size: 38px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.offers-page-hero-title span {
+    color: #e58840;
+}
+
+.offers-page-hero-desc {
+    font-size: 15px;
+    color: #d1d5db;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. FILTER BAR (Pure CSS Interactive Tabs)
+   -------------------------------------------------------------------------- */
+.offers-page-filter-section {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #ebebeb;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+/* Hidden Radio Inputs for Pure CSS Filtering */
+.offers-page-radio-filter {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+.offers-page-filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.offers-page-category-chips {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.offers-page-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    border-radius: 20px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.offers-page-chip:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+.offers-page-chip-count {
+    display: inline-block;
+    padding: 1px 7px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.08);
+    font-size: 11px;
+}
+
+/* Pure CSS Active Tab Highlighting */
+#offer-all:checked ~ .offers-page-filter-section label[for="offer-all"],
+#offer-audio:checked ~ .offers-page-filter-section label[for="offer-audio"],
+#offer-wearables:checked ~ .offers-page-filter-section label[for="offer-wearables"],
+#offer-cameras:checked ~ .offers-page-filter-section label[for="offer-cameras"],
+#offer-gaming:checked ~ .offers-page-filter-section label[for="offer-gaming"],
+#offer-accessories:checked ~ .offers-page-filter-section label[for="offer-accessories"] {
+    background-color: #e58840;
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(229, 136, 64, 0.35);
+}
+
+#offer-all:checked ~ .offers-page-filter-section label[for="offer-all"] .offers-page-chip-count,
+#offer-audio:checked ~ .offers-page-filter-section label[for="offer-audio"] .offers-page-chip-count,
+#offer-wearables:checked ~ .offers-page-filter-section label[for="offer-wearables"] .offers-page-chip-count,
+#offer-cameras:checked ~ .offers-page-filter-section label[for="offer-cameras"] .offers-page-chip-count,
+#offer-gaming:checked ~ .offers-page-filter-section label[for="offer-gaming"] .offers-page-chip-count,
+#offer-accessories:checked ~ .offers-page-filter-section label[for="offer-accessories"] .offers-page-chip-count {
+    background-color: rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+}
+
+/* Sort & Search Indicators */
+.offers-page-sort-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.offers-page-sort-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.offers-page-sort-select {
+    padding: 7px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    color: #374151;
+    cursor: pointer;
+    outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. PURE CSS PRODUCT FILTERING
+   -------------------------------------------------------------------------- */
+#offer-audio:checked ~ .offers-page-deals-section .offers-page-deal-card:not(.is-audio) {
+    display: none;
+}
+
+#offer-wearables:checked ~ .offers-page-deals-section .offers-page-deal-card:not(.is-wearables) {
+    display: none;
+}
+
+#offer-cameras:checked ~ .offers-page-deals-section .offers-page-deal-card:not(.is-cameras) {
+    display: none;
+}
+
+#offer-gaming:checked ~ .offers-page-deals-section .offers-page-deal-card:not(.is-gaming) {
+    display: none;
+}
+
+#offer-accessories:checked ~ .offers-page-deals-section .offers-page-deal-card:not(.is-accessories) {
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   5. OFFERS PRODUCTS GRID & CARDS
+   -------------------------------------------------------------------------- */
+.offers-page-deals-section {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 45px 0 65px 0;
+}
+
+.offers-page-deals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* Deal Card */
+.offers-page-deal-card {
+    background-color: #ffffff;
+    border: 1px solid #ebebeb;
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.offers-page-deal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    border-color: #d1d5db;
+}
+
+/* Top Card Bar: Countdown Badge + Wishlist */
+.offers-page-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    gap: 8px;
+}
+
+.offers-page-deal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background-color: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.offers-page-discount-tag {
+    background-color: #d83131;
+    color: #ffffff;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+/* Wishlist Toggle */
+.offers-page-wishlist-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+.offers-page-wishlist-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #9ca3af;
+    transition: all 0.2s ease;
+    user-select: none;
+    margin-left: auto;
+}
+
+.offers-page-wishlist-btn:hover {
+    color: #d83131;
+    border-color: #fca5a5;
+    background-color: #fff5f5;
+}
+
+.offers-page-wishlist-toggle:checked + .offers-page-wishlist-btn {
+    color: #d83131;
+    border-color: #fca5a5;
+    background-color: #fff5f5;
+}
+
+.offers-page-wishlist-toggle:checked + .offers-page-wishlist-btn svg {
+    fill: #d83131;
+    transform: scale(1.15);
+}
+
+.offers-page-wishlist-btn svg {
+    width: 14px;
+    height: 14px;
+    fill: currentColor;
+    transition: transform 0.2s ease, fill 0.2s ease;
+}
+
+/* Card Image Area */
+.offers-page-media {
+    width: 100%;
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 16px 0;
+    overflow: hidden;
+}
+
+.offers-page-img {
+    max-height: 165px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.offers-page-deal-card:hover .offers-page-img {
+    transform: scale(1.06);
+}
+
+/* Card Body */
+.offers-page-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.offers-page-category-tag {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #9ca3af;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.offers-page-product-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2b303a;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.offers-page-product-title:hover {
+    color: #e58840;
+}
+
+/* Rating */
+.offers-page-rating-row {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 12px;
+}
+
+.offers-page-rating-row svg {
+    width: 12px;
+    height: 12px;
+    fill: #ffb800;
+}
+
+.offers-page-reviews {
+    font-size: 11px;
+    color: #9ca3af;
+    margin-left: 4px;
+}
+
+/* Progress Claim Bar */
+.offers-page-progress-wrapper {
+    margin-bottom: 14px;
+}
+
+.offers-page-progress-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #6b7280;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.offers-page-progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.offers-page-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #e58840 0%, #d83131 100%);
+    border-radius: 4px;
+}
+
+/* Pricing & Add to Cart */
+.offers-page-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.offers-page-price-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.offers-page-price-current {
+    font-size: 19px;
+    font-weight: 700;
+    color: #2b303a;
+    line-height: 1.1;
+}
+
+.offers-page-price-old {
+    font-size: 12.5px;
+    color: #9ca3af;
+    text-decoration: line-through;
+}
+
+.offers-page-btn-cart {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #e58840;
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 3px 8px rgba(229, 136, 64, 0.3);
+}
+
+.offers-page-btn-cart:hover {
+    background-color: #d27731;
+    transform: translateY(-2px);
+}
+
+.offers-page-btn-cart svg {
+    width: 13px;
+    height: 13px;
+    fill: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   6. WEEKEND TECH FLASH BANNER
+   -------------------------------------------------------------------------- */
+.offers-page-promo-banner {
+    width: 100%;
+    background: linear-gradient(135deg, #e58840 0%, #c46820 100%);
+    color: #ffffff;
+    padding: 40px 0;
+    border-radius: 16px;
+    margin: 40px 0;
+    box-shadow: 0 10px 25px rgba(229, 136, 64, 0.25);
+}
+
+.offers-page-promo-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0 35px;
+}
+
+.offers-page-promo-text h3 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 6px;
+}
+
+.offers-page-promo-text p {
+    font-size: 14.5px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.offers-page-promo-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.offers-page-coupon-pill {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px dashed #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.offers-page-promo-btn {
+    background-color: #ffffff;
+    color: #2b303a;
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.offers-page-promo-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   7. FOOTER STYLING
+   -------------------------------------------------------------------------- */
+.offers-page-footer {
+    width: 100%;
+    background-color: #1f232b;
+    color: #9ca3af;
+    padding: 60px 0 0 0;
+    font-size: 13px;
+}
+
+.offers-page-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    gap: 40px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #2d3340;
+}
+
+.offers-page-footer-col h4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+}
+
+.offers-page-footer-col p {
+    line-height: 1.6;
+    margin-bottom: 16px;
+    color: #9ca3af;
+}
+
+.offers-page-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.offers-page-footer-links li {
+    margin-bottom: 10px;
+}
+
+.offers-page-footer-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.offers-page-footer-links a:hover {
+    color: #e58840;
+}
+
+.offers-page-newsletter-form {
+    display: flex;
+    margin-top: 14px;
+}
+
+.offers-page-newsletter-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid #374151;
+    border-radius: 8px 0 0 8px;
+    background-color: #2b303a;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    outline: none;
+}
+
+.offers-page-newsletter-input:focus {
+    border-color: #e58840;
+}
+
+.offers-page-newsletter-btn {
+    padding: 0 20px;
+    background-color: #e58840;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.offers-page-newsletter-btn:hover {
+    background-color: #d27731;
+}
+
+.offers-page-footer-bottom {
+    padding: 24px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 12px;
+}
+
+.offers-page-payment-methods {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.offers-page-payment-pill {
+    background-color: #2b303a;
+    color: #d1d5db;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   8. RESPONSIVE DESIGN FOR OFFERS PAGE
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+    .offers-page-deals-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .offers-page-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 860px) {
+    .offers-page-hero-title {
+        font-size: 30px;
+    }
+    .offers-page-deals-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .offers-page-promo-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .offers-page-filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .offers-page-category-chips {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 8px;
+    }
+    .offers-page-deals-grid {
+        grid-template-columns: 1fr;
+    }
+    .offers-page-footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .offers-page-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}

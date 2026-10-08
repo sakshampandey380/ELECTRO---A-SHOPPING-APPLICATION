@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electro - Electronics eCommerce Store</title>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- External CSS File -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========================================================= -->
+    <!-- 1. TOP UTILITY BAR                                        -->
+    <!-- ========================================================= -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <!-- Left Help/Support Links -->
+            <div class="top-left">
+                <a href="#">Help</a>
+                <span class="sep">/</span>
+                <a href="#">Support</a>
+                <span class="sep">/</span>
+                <a href="#">Contact</a>
+            </div>
+
+            <!-- Center Hotline -->
+            <div class="top-center">
+                <span>Call Us:(+012) 1234 567890</span>
+            </div>
+
+            <!-- Right Options: Currency, Language, Dashboard -->
+            <div class="top-right">
+                <div class="top-item dropdown">
+                    <span>USD</span>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <div class="top-item dropdown">
+                    <span>English</span>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <div class="top-item dropdown dashboard-link">
+                    <svg class="icon icon-home" viewBox="0 0 576 512" width="11" height="11" fill="currentColor">
+                        <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v73.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/>
+                    </svg>
+                    <span>My Dashboard</span>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 2. MAIN HEADER (Logo, Search Bar, Quick Actions)          -->
+    <!-- ========================================================= -->
+    <header class="main-header">
+        <div class="container header-container">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-logo">
+                <div class="logo-icon">
+                    <svg class="logo-svg" viewBox="0 0 32 34" width="30" height="32">
+                        <!-- Bag Handle -->
+                        <path fill="#d83131" d="M16 2 C11 2 8 5.5 8 10 L8 12 L12 12 L12 10 C12 7.8 13.8 6 16 6 C18.2 6 20 7.8 20 10 L20 12 L24 12 L24 10 C24 5.5 21 2 16 2 Z"/>
+                        <!-- Bag Body -->
+                        <rect x="2" y="11" width="28" height="22" rx="3.5" fill="#d83131"/>
+                        <!-- Rivet Dots -->
+                        <circle cx="10" cy="16.5" r="1.6" fill="#ffffff"/>
+                        <circle cx="22" cy="16.5" r="1.6" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <span class="logo-name">Electro</span>
+            </a>
+
+            <!-- Search Area with Category Dropdown -->
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Search Looking For?">
+                <div class="category-dropdown">
+                    <span>All Category</span>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="9" height="9" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <svg class="icon icon-search" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Action Controls: Compare, Wishlist, Cart -->
+            <div class="user-actions">
+                <a href="#" class="action-circle" title="Compare Products">
+                    <svg class="icon icon-compare" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                        <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.42l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.12z"/>
+                    </svg>
+                </a>
+                <a href="#" class="action-circle" title="Wishlist">
+                    <svg class="icon icon-heart" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </a>
+                <a href="#" class="action-cart" title="Shopping Cart">
+                    <svg class="icon icon-cart" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span class="cart-total">$0.00</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 3. NAVIGATION BAR (Orange Ribbon with Menu & Hotline)     -->
+    <!-- ========================================================= -->
+    <nav class="nav-ribbon">
+        <div class="container nav-container">
+            <!-- Left: All Categories Trigger -->
+            <div class="nav-categories">
+                <svg class="icon icon-bars" viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+                    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                </svg>
+                <span class="categories-title">All Categories</span>
+            </div>
+
+            <!-- Right Group: Nav Links + Hotline Pill -->
+            <div class="nav-right-group">
+                <ul class="nav-menu">
+                    <li><a href="#" class="nav-item active">Home</a></li>
+                    <li><a href="#" class="nav-item">Shop</a></li>
+                    <li><a href="#" class="nav-item">Single Page</a></li>
+                    <li class="has-submenu">
+                        <a href="#" class="nav-item">
+                            <span>Pages</span>
+                            <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                                <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                            </svg>
+                        </a>
+                    </li>
+                    <li><a href="#" class="nav-item">Contact</a></li>
+                </ul>
+
+                <div class="nav-hotline">
+                    <a href="tel:+01234567890" class="hotline-pill">
+                        <svg class="icon icon-phone" viewBox="0 0 384 512" width="12" height="12" fill="currentColor">
+                            <path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm112 432a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                        </svg>
+                        <span>+0123 456 7890</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================= -->
+    <!-- 4. HERO SECTION (Main Slider Banner + Promo Side Card)    -->
+    <!-- ========================================================= -->
+    <section class="hero-showcase">
+        <div class="container hero-layout">
+            <!-- Left Hero Banner (~73% width) -->
+            <div class="hero-main-card">
+                <!-- Monitor Graphic Illustration -->
+                <div class="hero-graphic">
+                    <img src="assets/monitor_transparent.png" alt="Desktop and Online Shopping Illustration" class="monitor-img">
+                </div>
+
+                <!-- Hero Promotional Typography -->
+                <div class="hero-details">
+                    <span class="hero-eyebrow">SAVE UP TO A $200</span>
+                    <h1 class="hero-heading">
+                        On Selected<br>
+                        Laptops &<br>
+                        Desktop Or<br>
+                        Smartphone
+                    </h1>
+                    <p class="hero-terms">Terms and Condition Apply</p>
+                    <a href="#" class="hero-cta-btn">Shop Now</a>
+                </div>
+
+                <!-- Carousel Slider Navigation Arrows -->
+                <div class="hero-arrows">
+                    <button class="arrow-btn" aria-label="Previous Slide">
+                        <svg class="icon icon-arrow" viewBox="0 0 448 512" width="12" height="12" fill="currentColor">
+                            <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+                        </svg>
+                    </button>
+                    <button class="arrow-btn" aria-label="Next Slide">
+                        <svg class="icon icon-arrow" viewBox="0 0 448 512" width="12" height="12" fill="currentColor">
+                            <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Promo Banner Card (~27% width) -->
+            <div class="hero-promo-card">
+                <!-- Promo Top Tags -->
+                <div class="promo-top-tags">
+                    <span class="save-tag">Save $48.00</span>
+                    <span class="special-tag">Special Offer</span>
+                </div>
+
+                <!-- Bottom Product Information -->
+                <div class="promo-bottom-info">
+                    <span class="product-category">SmartPhone</span>
+                    <h2 class="product-title">
+                        Apple iPad Mini<br>
+                        G2356
+                    </h2>
+                    <div class="product-prices">
+                        <span class="old-price">$1,250.00</span>
+                        <span class="current-price">$1,050.00</span>
+                    </div>
+                    <a href="#" class="btn-add-cart">
+                        <svg class="icon icon-cart" viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+                            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                        <span>Add To Cart</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 5. FLOATING SCROLL TO TOP BUTTON                          -->
+    <!-- ========================================================= -->
+    <a href="#" class="scroll-top-btn" title="Back to Top" aria-label="Back to Top">
+        <svg class="icon icon-arrow-up" viewBox="0 0 384 512" width="14" height="14" fill="currentColor">
+            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/>
+        </svg>
+    </a>
+
+</body>
+</html>

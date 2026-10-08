@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile &amp; Dashboard - Electro</title>
+    <!-- Core & App Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reference-offers.css">
+    <link rel="stylesheet" href="app-styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ========================================================= -->
+    <!-- 1. HEADER (UNIVERSAL ELECTRO NAVBAR)                      -->
+    <!-- ========================================================= -->
+    <!-- ========================================================= -->
+    <!-- 1. TOP UTILITY BAR                                        -->
+    <!-- ========================================================= -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <!-- Left Help/Support Links -->
+            <div class="top-left">
+                <a href="contact.html">Help</a>
+                <span class="sep">/</span>
+                <a href="contact.html">Support</a>
+                <span class="sep">/</span>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <!-- Center Hotline -->
+            <div class="top-center">
+                <span>Call Us:(+012) 1234 567890</span>
+            </div>
+
+            <!-- Right Options: Currency, Language, Dashboard -->
+            <div class="top-right">
+                <div class="top-item dropdown">
+                    <span>USD</span>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <div class="top-item dropdown">
+                    <span>English</span>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <a href="profile.html" class="top-item dashboard-link" data-profile-link style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:5px;">
+                    <svg class="icon icon-home" viewBox="0 0 576 512" width="11" height="11" fill="currentColor">
+                        <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v73.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/>
+                    </svg>
+                    <span>My Dashboard</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 2. MAIN HEADER (Logo, Search Bar, Quick Actions)          -->
+    <!-- ========================================================= -->
+    <header class="main-header">
+        <div class="container header-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon">
+                    <svg class="logo-svg" viewBox="0 0 32 34" width="30" height="32">
+                        <path fill="#d83131" d="M16 2 C11 2 8 5.5 8 10 L8 12 L12 12 L12 10 C12 7.8 13.8 6 16 6 C18.2 6 20 7.8 20 10 L20 12 L24 12 L24 10 C24 5.5 21 2 16 2 Z"/>
+                        <rect x="2" y="11" width="28" height="22" rx="3.5" fill="#d83131"/>
+                        <circle cx="10" cy="16.5" r="1.6" fill="#ffffff"/>
+                        <circle cx="22" cy="16.5" r="1.6" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <span class="logo-name">Electro</span>
+            </a>
+
+            <!-- Search Area with Category Dropdown -->
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Search Looking For?">
+                <div class="category-dropdown">
+                    <span>All Category</span>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="9" height="9" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <button type="submit" class="search-btn" aria-label="Search">
+                    <svg class="icon icon-search" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Action Controls: Compare, Wishlist, Cart -->
+            <div class="user-actions">
+                <a href="profile.html" class="action-circle" title="Compare Products">
+                    <svg class="icon icon-compare" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                        <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.42l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.12z"/>
+                    </svg>
+                </a>
+                <a href="profile.html" class="action-circle" title="Wishlist">
+                    <svg class="icon icon-heart" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </a>
+                <a href="cart.html" class="action-cart" title="Shopping Cart" style="position:relative;">
+                    <svg class="icon icon-cart" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span class="cart-total" data-cart-total>$0.00</span>
+                    <span class="header-cart-badge" data-cart-count style="display:none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 3. NAVIGATION BAR (Ribbon Menu)                           -->
+    <!-- ========================================================= -->
+    <nav class="nav-ribbon">
+        <div class="container nav-container">
+            <div class="nav-categories">
+                <svg class="icon icon-bars" viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+                    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                </svg>
+                <span class="categories-title">All Categories</span>
+            </div>
+
+            <div class="nav-right-group">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="offers.html" class="nav-item">Shop</a></li>
+                    <li><a href="offers.html" class="nav-item">Offers</a></li>
+                    <li><a href="single-product.html" class="nav-item">Single Page</a></li>
+                    <li class="has-submenu nav-item-dropdown">
+                        <a href="#" class="nav-item active">
+                            <span>Pages</span>
+                            <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                                <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="single-product.html">Single Product</a>
+                            <a href="contact.html">Contact Us</a>
+                            <a href="cart.html">Cart Page</a>
+                            <a href="cart.html#checkout">Checkout</a>
+                            <a href="profile.html">User Profile</a>
+                            <a href="auth.html">Login / Sign Up</a>
+                            <a href="offers.html">Offers Page</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+
+                <div class="nav-hotline">
+                    <a href="tel:+01234567890" class="hotline-pill">
+                        <svg class="icon icon-phone" viewBox="0 0 384 512" width="12" height="12" fill="currentColor">
+                            <path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm112 432a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                        </svg>
+                        <span>+0123 456 7890</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================= -->
+    <!-- 2. DARK HERO BANNER                                       -->
+    <!-- ========================================================= -->
+    <section class="page-hero-banner">
+        <div class="container">
+            <h1 class="page-hero-title">Customer Dashboard</h1>
+            <div class="page-hero-breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <a href="#">Pages</a>
+                <span>/</span>
+                <span>User Profile &amp; Orders</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 3. DASHBOARD MAIN CONTENT                                 -->
+    <!-- ========================================================= -->
+    <div class="container">
+        <div class="profile-dashboard-layout">
+            
+            <!-- 3A. Left Profile Sidebar -->
+            <aside class="profile-sidebar-card">
+                <div class="profile-avatar-wrapper">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" alt="User Profile" id="profile-display-avatar" class="profile-avatar-img">
+                </div>
+                <h3 class="profile-user-name" id="profile-display-name">Saksham Pandey</h3>
+                <p class="profile-user-email" id="profile-display-email">saksham@example.com</p>
+                <div style="font-size: 12.5px; color: #94a3b8; margin-bottom: 14px;">Member Since: <strong id="profile-display-date">Sep 2026</strong></div>
+
+                <ul class="profile-nav-links">
+                    <li class="profile-nav-item">
+                        <a href="#overview" class="profile-nav-link is-active" data-view="overview">📊 Account Overview</a>
+                    </li>
+                    <li class="profile-nav-item">
+                        <a href="#orders" class="profile-nav-link" data-view="orders">📦 Order List &amp; Purchases</a>
+                    </li>
+                    <li class="profile-nav-item">
+                        <a href="#cart" class="profile-nav-link" data-view="cart">🛒 Add To Cart Status</a>
+                    </li>
+                    <li class="profile-nav-item">
+                        <a href="#edit" class="profile-nav-link" data-view="edit">⚙️ Edit Profile &amp; Address</a>
+                    </li>
+                    <li class="profile-nav-item">
+                        <a href="#feedback" class="profile-nav-link" data-view="feedback">⭐ Returns &amp; Feedback</a>
+                    </li>
+                    <li class="profile-nav-item" style="margin-top: 14px; border-top: 1px solid #f1f5f9; padding-top: 10px;">
+                        <a href="#" id="btn-logout" class="profile-nav-link" style="color: #ef4444;">🚪 Sign Out</a>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- 3B. Right Content Area -->
+            <main class="profile-content-area">
+
+                <!-- 1. Stats Metrics Row (Total Spent, Total Orders, Items in Cart, Returns) -->
+                <div class="profile-stats-grid">
+                    <div class="profile-stat-box">
+                        <div class="profile-stat-label">Total Purchased (कुल खरीदारी)</div>
+                        <div class="profile-stat-val" id="stat-total-spent">$1,239.00</div>
+                    </div>
+                    <div class="profile-stat-box" style="border-left-color: #22c55e;">
+                        <div class="profile-stat-label">Orders Placed</div>
+                        <div class="profile-stat-val" id="stat-orders-count">2</div>
+                    </div>
+                    <div class="profile-stat-box" style="border-left-color: #3b82f6;">
+                        <div class="profile-stat-label">Items in Cart</div>
+                        <div class="profile-stat-val" id="stat-cart-count">0</div>
+                    </div>
+                    <div class="profile-stat-box" style="border-left-color: #f59e0b;">
+                        <div class="profile-stat-label">Favorite Category</div>
+                        <div class="profile-stat-val" id="stat-fav-cat" style="font-size: 16px; font-weight: 700; margin-top: 4px;">Smartphones</div>
+                    </div>
+                </div>
+
+                <!-- 2. Order List Section (ऑर्डर लिस्ट) -->
+                <div class="profile-card" id="section-orders">
+                    <div class="profile-card-title">
+                        <span>📦 Your Order History (ऑर्डर लिस्ट)</span>
+                        <a href="offers.html" style="font-size: 13px; font-weight: 700; color: #e58840; text-decoration: none;">+ Browse Products</a>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Status (खरीदा गया)</th>
+                                    <th>Total Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orders-table-body">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 3. Add to Cart Items Section with Purchase Status -->
+                <div class="profile-card" id="section-cart">
+                    <div class="profile-card-title">
+                        <span>🛒 Active Items in Cart (खरीदा गया या नहीं)</span>
+                        <a href="cart.html" style="font-size: 13px; font-weight: 700; color: #e58840; text-decoration: none;">Go to Cart Page ↗</a>
+                    </div>
+                    <p style="font-size: 13px; color: #64748b; margin-bottom: 16px;">
+                        Here you can see items added to your cart, whether they are already ordered or waiting in cart, and immediately order now.
+                    </p>
+                    <div style="overflow-x: auto;">
+                        <table class="orders-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Unit Price</th>
+                                    <th>Quantity</th>
+                                    <th>Purchased Status</th>
+                                    <th>Direct Order</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-status-table-body">
+                                <!-- Populated dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 4. Edit Profile & Address Form -->
+                <div class="profile-card" id="section-edit">
+                    <div class="profile-card-title">
+                        <span>⚙️ Edit Profile &amp; Shipping Details</span>
+                    </div>
+                    <form id="edit-profile-form">
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+                            <div>
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="edit-name" required>
+                            </div>
+                            <div>
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="edit-phone" required>
+                            </div>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+                            <div>
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="edit-email" required>
+                            </div>
+                            <div>
+                                <label class="form-label">Favorite Category</label>
+                                <select class="form-control" id="edit-fav-cat">
+                                    <option value="Smartphones">Smartphones &amp; Mobiles</option>
+                                    <option value="Laptops & Computers">Laptops, PCs &amp; Desktops</option>
+                                    <option value="Cameras & Photography">Cameras &amp; Photography</option>
+                                    <option value="Audio & Headphones">Audio &amp; Studio Headphones</option>
+                                    <option value="Accessories">Gadget Accessories &amp; Watches</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom:16px;">
+                            <label class="form-label">Profile Photo (Avatar Image URL)</label>
+                            <input type="url" class="form-control" id="edit-avatar">
+                        </div>
+
+                        <div style="margin-bottom:22px;">
+                            <label class="form-label">Full Shipping Address</label>
+                            <textarea rows="3" class="form-control" id="edit-address" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-contact-submit">Save Profile Changes</button>
+                    </form>
+                </div>
+
+                <!-- 5. Experience, Return Requests & Feedback -->
+                <div class="profile-card" id="section-feedback">
+                    <div class="profile-card-title">
+                        <span>⭐ Return Requests &amp; Shopping Experience</span>
+                    </div>
+                    <p style="font-size: 13.5px; color: #64748b; margin-bottom: 18px;">
+                        Tell us about your experience shopping on Electro or request an easy 30-day money-back return.
+                    </p>
+                    <form id="feedback-form">
+                        <div style="margin-bottom:16px;">
+                            <label class="form-label">How was your overall shopping experience?</label>
+                            <select class="form-control" id="feedback-rating">
+                                <option value="5">⭐⭐⭐⭐⭐ Outstanding (5 / 5)</option>
+                                <option value="4">⭐⭐⭐⭐ Great (4 / 5)</option>
+                                <option value="3">⭐⭐⭐ Average (3 / 5)</option>
+                                <option value="2">⭐⭐ Needs Improvement (2 / 5)</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom:16px;">
+                            <label class="form-label">Feedback or Return Item Request</label>
+                            <textarea rows="3" class="form-control" id="feedback-text" placeholder="Mention item returned or share what you loved about our service..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-contact-submit">Submit Feedback</button>
+                    </form>
+                </div>
+
+            </main>
+
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 4. UNIVERSAL MASTER FOOTER                                -->
+    <!-- ========================================================= -->
+    <footer class="master-footer">
+        <div class="master-footer-top-strip">
+            <div class="container">
+                <div class="master-footer-contact-grid">
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></div>
+                        <h4 class="master-footer-card-title">Address</h4>
+                        <p class="master-footer-card-sub">123 Street New York, USA</p>
+                    </div>
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                        <h4 class="master-footer-card-title">Mail Us</h4>
+                        <p class="master-footer-card-sub">info@example.com</p>
+                    </div>
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                        <h4 class="master-footer-card-title">Telephone</h4>
+                        <p class="master-footer-card-sub">(+012) 3456 7890</p>
+                    </div>
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+                        <h4 class="master-footer-card-title">Yoursite@ex.com</h4>
+                        <p class="master-footer-card-sub">(+012) 3456 7890</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="master-footer-main">
+            <div class="container">
+                <div class="master-footer-columns">
+                    <div>
+                        <h3 class="master-footer-col-title">Newsletter</h3>
+                        <p class="master-footer-col-text">Dolor amet sit justo amet elitr clita ipsum elitr est. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <form class="master-footer-newsletter-form" onsubmit="event.preventDefault(); Electro.showToast('Thank you for subscribing!', 'success');">
+                            <input type="email" placeholder="Enter your email" required class="master-footer-newsletter-input">
+                            <button type="submit" class="master-footer-newsletter-btn">SignUp</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="master-footer-col-title">Customer Service</h3>
+                        <ul class="master-footer-link-list">
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="profile.html">Returns</a></li>
+                            <li><a href="profile.html#orders">Order History</a></li>
+                            <li><a href="offers.html">Site Map</a></li>
+                            <li><a href="profile.html">Testimonials</a></li>
+                            <li><a href="profile.html">My Account</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="master-footer-col-title">Information</h3>
+                        <ul class="master-footer-link-list">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Warranty</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="master-footer-col-title">Extras</h3>
+                        <ul class="master-footer-link-list">
+                            <li><a href="offers.html">Brands</a></li>
+                            <li><a href="offers.html">Gift Vouchers</a></li>
+                            <li><a href="#">Affiliates</a></li>
+                            <li><a href="profile.html">Wishlist</a></li>
+                            <li><a href="profile.html#orders">Order History</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="master-footer-bottom-bar">
+            <div class="container master-footer-bottom-flex">
+                <p>&copy; <strong>Electro</strong>. All right reserved.</p>
+                <p>Designed By HTML Codex. Distributed By ThemeWagon. <span class="master-saksham-badge">Made by Saksham</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="electro-core.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const user = Electro.Auth.getCurrentUser();
+            if (!user) {
+                // If not logged in, prompt to log in
+                window.location.href = 'auth.html';
+                return;
+            }
+
+            // Populate User Details
+            document.getElementById('profile-display-name').textContent = user.name;
+            document.getElementById('profile-display-email').textContent = user.email || user.phone;
+            document.getElementById('profile-display-avatar').src = user.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80';
+            document.getElementById('profile-display-date').textContent = user.registeredAt || '2026';
+
+            // Stats
+            const totalSpent = Electro.Orders.getTotalSpent();
+            const orders = Electro.Orders.getAll();
+            const cartItems = Electro.Cart.getItems();
+
+            document.getElementById('stat-total-spent').textContent = `$${totalSpent.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('stat-orders-count').textContent = orders.length;
+            document.getElementById('stat-cart-count').textContent = Electro.Cart.getCount();
+            document.getElementById('stat-fav-cat').textContent = user.favoriteCategory || 'Smartphones';
+
+            // Populate Edit Form
+            document.getElementById('edit-name').value = user.name || '';
+            document.getElementById('edit-phone').value = user.phone || '';
+            document.getElementById('edit-email').value = user.email || '';
+            document.getElementById('edit-fav-cat').value = user.favoriteCategory || 'Smartphones';
+            document.getElementById('edit-avatar').value = user.avatar || '';
+            document.getElementById('edit-address').value = user.address || '';
+
+            // Render Orders Table
+            const ordersTbody = document.getElementById('orders-table-body');
+            if (orders.length === 0) {
+                ordersTbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px; color:#94a3b8;">No orders placed yet. <a href="offers.html" style="color:#e58840; font-weight:700;">Start Shopping!</a></td></tr>';
+            } else {
+                ordersTbody.innerHTML = orders.map(ord => {
+                    const itemNames = ord.items.map(i => `${i.name} (x${i.qty})`).join(', ');
+                    return `
+                        <tr>
+                            <td><strong>#${ord.orderId}</strong></td>
+                            <td>${ord.date}</td>
+                            <td style="max-width:240px; font-size:12.5px;">${itemNames}</td>
+                            <td><span class="order-badge-success">${ord.status}</span></td>
+                            <td><strong style="color:#e58840;">$${ord.total.toFixed(2)}</strong></td>
+                            <td>
+                                <button type="button" onclick="alert('Order #${ord.orderId} Details:\\nShipping to: ${ord.shippingAddress}\\nPayment: ${ord.paymentMethod}\\nStatus: ${ord.status}')" style="background:#f1f5f9; border:none; padding:6px 12px; border-radius:4px; font-size:12px; font-weight:700; cursor:pointer;">View</button>
+                            </td>
+                        </tr>
+                    `;
+                }).join('');
+            }
+
+            // Render Cart Status Table (In Cart vs Purchased)
+            const cartTbody = document.getElementById('cart-status-table-body');
+            if (cartItems.length === 0) {
+                cartTbody.innerHTML = '<tr><td colspan="6" style="text-align:center; padding:30px; color:#94a3b8;">Your cart is currently empty. <a href="offers.html" style="color:#e58840; font-weight:700;">Explore Offers</a></td></tr>';
+            } else {
+                cartTbody.innerHTML = cartItems.map(item => `
+                    <tr>
+                        <td>
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <img src="${item.img}" alt="${item.name}" style="width:40px; height:40px; object-fit:contain; border-radius:4px; background:#fafafa; border:1px solid #eee;">
+                                <strong>${item.name}</strong>
+                            </div>
+                        </td>
+                        <td>${item.category}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>${item.qty}</td>
+                        <td><span style="background:#fef3c7; color:#b45309; padding:4px 8px; border-radius:12px; font-size:11.5px; font-weight:700;">In Cart (Not Purchased)</span></td>
+                        <td>
+                            <button type="button" class="btn-direct-order" data-prod-id="${item.id}" style="background:#e58840; color:#fff; border:none; padding:6px 14px; border-radius:20px; font-size:12px; font-weight:700; cursor:pointer;">Order Now ⚡</button>
+                        </td>
+                    </tr>
+                `).join('');
+
+                // Hook Direct Order Now Buttons
+                document.querySelectorAll('.btn-direct-order').forEach(btn => {
+                    btn.addEventListener('click', function () {
+                        const id = this.getAttribute('data-prod-id');
+                        const targetItem = cartItems.find(i => i.id === id);
+                        if (targetItem) {
+                            const res = Electro.Orders.createOrder({
+                                address: user.address,
+                                name: user.name,
+                                phone: user.phone
+                            }, targetItem);
+
+                            if (res.success) {
+                                Electro.showToast(`🎉 Order #${res.order.orderId} Placed Successfully!`, 'success');
+                                setTimeout(() => window.location.reload(), 900);
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Save Profile Form
+            document.getElementById('edit-profile-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const updated = {
+                    name: document.getElementById('edit-name').value,
+                    phone: document.getElementById('edit-phone').value,
+                    email: document.getElementById('edit-email').value,
+                    favoriteCategory: document.getElementById('edit-fav-cat').value,
+                    avatar: document.getElementById('edit-avatar').value,
+                    address: document.getElementById('edit-address').value
+                };
+
+                Electro.Auth.updateProfile(updated);
+                Electro.showToast('Profile information updated successfully! ✨', 'success');
+                setTimeout(() => window.location.reload(), 800);
+            });
+
+            // Feedback Form
+            document.getElementById('feedback-form').addEventListener('submit', function (e) {
+                e.preventDefault();
+                Electro.showToast('Thank you! Your feedback & experience report have been recorded.', 'success');
+                this.reset();
+            });
+
+            // Sign Out
+            document.getElementById('btn-logout').addEventListener('click', function (e) {
+                e.preventDefault();
+                Electro.Auth.logout();
+            });
+        });
+    </script>
+</body>
+</html>
+
