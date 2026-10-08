@@ -1510,3 +1510,352 @@
     }
 }
 
+
+/* ==========================================================================
+   11. TOP BAR SELECTORS (CURRENCY & LANGUAGE SWITCHERS)
+   ========================================================================== */
+.top-select-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.top-select-currency,
+.top-select-language {
+    background: transparent;
+    color: #4b5563;
+    font-family: inherit;
+    font-size: 11.5px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-right: 14px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: color 0.2s ease;
+}
+
+.top-select-currency:hover,
+.top-select-language:hover {
+    color: var(--primary-orange);
+}
+
+.top-select-currency option,
+.top-select-language option {
+    background-color: #ffffff;
+    color: #1e293b;
+    font-size: 13px;
+    padding: 6px;
+}
+
+.top-select-wrapper .icon-down {
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+    color: #9ca3af;
+}
+
+/* ==========================================================================
+   12. SEARCH BAR CATEGORY SELECT & NAV RIBBON CATEGORIES MENU
+   ========================================================================== */
+.search-category-select {
+    background: transparent;
+    color: #4b5563;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-right: 14px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.search-category-select option {
+    background-color: #ffffff;
+    color: #1e293b;
+    font-size: 13.5px;
+    padding: 6px;
+}
+
+.nav-categories {
+    position: relative;
+}
+
+.nav-categories-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 240px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 0 0 8px 8px;
+    border: 1px solid #f1f5f9;
+    border-top: 3px solid var(--primary-orange);
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    animation: fadeInDown 0.25s ease;
+}
+
+.nav-categories:hover .nav-categories-menu {
+    display: flex;
+}
+
+.nav-cat-item {
+    padding: 12px 18px;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: #334155;
+    text-decoration: none;
+    border-bottom: 1px solid #f8fafc;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-cat-item:hover {
+    background-color: #fff7ed;
+    color: var(--primary-orange);
+    padding-left: 24px;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   13. DYNAMIC SEARCH RESULTS SECTION (HOMEPAGE)
+   ========================================================================== */
+.electro-search-results-section {
+    padding: 40px 0 60px 0;
+    background: #ffffff;
+    border-bottom: 2px solid #f1f5f9;
+    position: relative;
+    z-index: 20;
+    animation: fadeInSearch 0.35s ease;
+}
+
+@keyframes fadeInSearch {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.search-results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+    border-bottom: 2px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.search-results-heading {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+}
+
+.search-results-meta {
+    font-size: 14px;
+    color: #64748b;
+    margin: 4px 0 0 0;
+}
+
+.btn-clear-search {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-clear-search:hover {
+    background: var(--primary-red);
+    color: #ffffff;
+    border-color: var(--primary-red);
+    transform: scale(1.03);
+}
+
+.search-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 26px;
+}
+
+/* Hide normal homepage sections when search is active as requested */
+body.body-searching .hide-on-search {
+    display: none !important;
+}
+
+/* ==========================================================================
+   14. WISHLIST / LIKE HEART BUTTON STYLES & ANIMATION
+   ========================================================================== */
+.reference-drawer-circle-btn.is-liked,
+.offers-page-wishlist-btn.is-liked,
+.is-liked,
+.is-liked svg {
+    color: #e53e3e !important;
+    fill: #e53e3e !important;
+}
+
+.reference-drawer-circle-btn.is-liked {
+    background-color: #fee2e2 !important;
+    border-color: #fca5a5 !important;
+    animation: electroHeartBeat 0.4s ease;
+}
+
+@keyframes electroHeartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+.liked-badge {
+    background-color: #e53e3e;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 12px;
+    margin-left: 6px;
+}
+
+/* ==========================================================================
+   15. PROFILE - LIKED PRODUCTS (पसंद किए गए उत्पाद) GRID
+   ========================================================================== */
+.profile-liked-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.liked-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.liked-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-color: #cbd5e1;
+}
+
+.liked-card-img-wrap {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    background: #fafafa;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.liked-card-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.liked-card-category {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 4px;
+    display: block;
+}
+
+.liked-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+    line-height: 1.35;
+    height: 38px;
+    overflow: hidden;
+}
+
+.liked-card-price {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--primary-orange);
+    margin-bottom: 14px;
+}
+
+.liked-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-liked-add-cart {
+    flex: 1;
+    background-color: var(--primary-orange);
+    color: #ffffff;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-liked-add-cart:hover {
+    background-color: var(--primary-orange-hover);
+}
+
+.btn-liked-remove {
+    background: #fee2e2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.btn-liked-remove:hover {
+    background: #ef4444;
+    color: #ffffff;
+    border-color: #ef4444;
+}

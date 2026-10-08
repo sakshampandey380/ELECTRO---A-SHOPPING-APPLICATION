@@ -38,14 +38,30 @@
 
             <!-- Right Options: Currency, Language, Dashboard -->
             <div class="top-right">
-                <div class="top-item dropdown">
-                    <span>USD</span>
+                <div class="top-item dropdown top-select-wrapper" title="Select Currency">
+                    <select class="top-select-currency" id="currency-select" aria-label="Select Currency">
+                        <option value="USD">USD ($)</option>
+                        <option value="INR">INR (₹)</option>
+                        <option value="RUB">RUB (₽)</option>
+                        <option value="JPY">JPY (¥)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="AED">AED (د.إ)</option>
+                    </select>
                     <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
                         <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
                     </svg>
                 </div>
-                <div class="top-item dropdown">
-                    <span>English</span>
+                <div class="top-item dropdown top-select-wrapper" title="Select Language">
+                    <select class="top-select-language" id="language-select" aria-label="Select Language">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="ru">Русский (Russian)</option>
+                        <option value="ja">日本語 (Japanese)</option>
+                        <option value="es">Español (Spanish)</option>
+                        <option value="de">Deutsch (German)</option>
+                        <option value="ar">العربية (Arabic)</option>
+                    </select>
                     <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
                         <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
                     </svg>
@@ -54,7 +70,7 @@
                     <svg class="icon icon-home" viewBox="0 0 576 512" width="11" height="11" fill="currentColor">
                         <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v73.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/>
                     </svg>
-                    <span>My Dashboard</span>
+                    <span data-i18n="my_dashboard">My Dashboard</span>
                 </a>
             </div>
         </div>
@@ -80,14 +96,21 @@
 
             <!-- Search Area with Category Dropdown -->
             <div class="search-wrapper">
-                <input type="text" class="search-input" placeholder="Search Looking For?">
-                <div class="category-dropdown">
-                    <span>All Category</span>
+                <input type="text" class="search-input" placeholder="Search Looking For?" id="global-search-input">
+                <div class="category-dropdown" style="position:relative;">
+                    <select class="search-category-select" id="header-category-select" aria-label="Select Category">
+                        <option value="all">All Category</option>
+                        <option value="SmartPhone">Smartphones</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Photography">Cameras &amp; Photo</option>
+                        <option value="Audio">Audio &amp; Studio</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
                     <svg class="icon icon-down" viewBox="0 0 320 512" width="9" height="9" fill="currentColor">
                         <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
                     </svg>
                 </div>
-                <button type="submit" class="search-btn" aria-label="Search">
+                <button type="submit" class="search-btn" id="global-search-btn" aria-label="Search">
                     <svg class="icon icon-search" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
                         <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
                     </svg>
@@ -101,7 +124,7 @@
                         <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.42l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.12z"/>
                     </svg>
                 </a>
-                <a href="profile.html" class="action-circle" title="Wishlist">
+                <a href="profile.html#liked" class="action-circle" title="Wishlist">
                     <svg class="icon icon-heart" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
                         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                     </svg>
@@ -122,11 +145,19 @@
     <!-- ========================================================= -->
     <nav class="nav-ribbon">
         <div class="container nav-container">
-            <div class="nav-categories">
+            <div class="nav-categories" id="nav-categories-trigger">
                 <svg class="icon icon-bars" viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
                     <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
                 </svg>
-                <span class="categories-title">All Categories</span>
+                <span class="categories-title" data-i18n="nav_all_categories">All Categories</span>
+                <div class="nav-categories-menu" id="nav-categories-dropdown">
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="all">📱 All Categories</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="SmartPhone">📲 Smartphones &amp; Tablets</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Photography">📷 Cameras &amp; Photography</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Electronics">💻 Laptops &amp; Computers</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Audio">🎧 Audio &amp; Headphones</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Accessories">⌚ Gadget Accessories</a>
+                </div>
             </div>
 
             <div class="nav-right-group">
@@ -207,6 +238,9 @@
                     </li>
                     <li class="profile-nav-item">
                         <a href="#cart" class="profile-nav-link" data-view="cart">🛒 Add To Cart Status</a>
+                    </li>
+                    <li class="profile-nav-item">
+                        <a href="#liked" class="profile-nav-link" data-view="liked">❤️ Liked Products (पसंद किए गए उत्पाद) <span class="liked-badge" id="liked-count-badge">0</span></a>
                     </li>
                     <li class="profile-nav-item">
                         <a href="#edit" class="profile-nav-link" data-view="edit">⚙️ Edit Profile &amp; Address</a>
@@ -293,6 +327,20 @@
                                 <!-- Populated dynamically by JS -->
                             </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <!-- 3B. Liked Products Section (पसंद किए गए उत्पाद) -->
+                <div class="profile-card" id="section-liked">
+                    <div class="profile-card-title">
+                        <span>❤️ Your Liked Products (पसंद किए गए उत्पाद)</span>
+                        <span id="liked-summary-count" style="font-size: 13px; font-weight: 700; color: #e58840;">0 Items</span>
+                    </div>
+                    <p style="font-size: 13.5px; color: #64748b; margin-bottom: 18px;">
+                        All products you have liked or saved to your wishlist across Electro are stored here. Add them straight to your cart or order them instantly.
+                    </p>
+                    <div class="profile-liked-grid" id="profile-liked-grid">
+                        <!-- Populated dynamically by Electro.Wishlist -->
                     </div>
                 </div>
 
@@ -509,7 +557,7 @@
                             <td>${ord.date}</td>
                             <td style="max-width:240px; font-size:12.5px;">${itemNames}</td>
                             <td><span class="order-badge-success">${ord.status}</span></td>
-                            <td><strong style="color:#e58840;">$${ord.total.toFixed(2)}</strong></td>
+                            <td><strong style="color:#e58840;" data-base-price="${ord.total}">${Electro.formatPrice(ord.total)}</strong></td>
                             <td>
                                 <button type="button" onclick="alert('Order #${ord.orderId} Details:\\nShipping to: ${ord.shippingAddress}\\nPayment: ${ord.paymentMethod}\\nStatus: ${ord.status}')" style="background:#f1f5f9; border:none; padding:6px 12px; border-radius:4px; font-size:12px; font-weight:700; cursor:pointer;">View</button>
                             </td>
@@ -532,7 +580,7 @@
                             </div>
                         </td>
                         <td>${item.category}</td>
-                        <td>$${item.price.toFixed(2)}</td>
+                        <td data-base-price="${item.price}">${Electro.formatPrice(item.price)}</td>
                         <td>${item.qty}</td>
                         <td><span style="background:#fef3c7; color:#b45309; padding:4px 8px; border-radius:12px; font-size:11.5px; font-weight:700;">In Cart (Not Purchased)</span></td>
                         <td>
@@ -560,6 +608,42 @@
                         }
                     });
                 });
+            }
+
+            // Sync Wishlist and Render Liked Products
+            Electro.Wishlist.updateWishlistUI();
+
+            // Tab Switching Handler
+            function activateProfileTab(hash) {
+                if (!hash) return;
+                const viewKey = hash.replace('#', '');
+                const targetSection = document.getElementById('section-' + viewKey) || (viewKey === 'overview' ? document.querySelector('.profile-stats-grid') : null);
+                
+                document.querySelectorAll('.profile-nav-link').forEach(link => {
+                    if (link.getAttribute('href') === hash || link.getAttribute('data-view') === viewKey) {
+                        link.classList.add('is-active');
+                    } else {
+                        link.classList.remove('is-active');
+                    }
+                });
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+
+            document.querySelectorAll('.profile-nav-link').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        activateProfileTab(href);
+                    }
+                });
+            });
+
+            if (window.location.hash) {
+                setTimeout(() => activateProfileTab(window.location.hash), 150);
             }
 
             // Save Profile Form
