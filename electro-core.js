@@ -428,9 +428,16 @@
         "Mention item returned or share what you loved about our service...": "Mention item returned or share what you loved about our service...",
         "Write your experience with this product...": "Write your experience with this product...",
         "keywords": "keywords",
+        "SAVE UP TO $200": "SAVE UP TO $200",
         "SPECIAL DISCOUNT 45%": "SPECIAL DISCOUNT 45%",
-        "FLASH SALE UP TO ": "FLASH SALE UP TO ",
+        "FLASH SALE UP TO $300": "FLASH SALE UP TO $300",
         "NEW ARRIVAL 2026": "NEW ARRIVAL 2026",
+        "SAVE UP TO 50% OFF": "SAVE UP TO 50% OFF",
+        "hero_slide_0": "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone",
+        "hero_slide_1": "Next-Gen AI<br>Smart Voice<br>Surround Sound<br>Speakers",
+        "hero_slide_2": "High-End Pro<br>Cinematic 4K<br>DSLR Camera<br>Kits",
+        "hero_slide_3": "Ultra Cinematic<br>4K Quadcopter<br>GPS Aerial<br>Drones",
+        "hero_slide_4": "Wireless HD<br>Studio Noise<br>Cancelling<br>Headphones",
         "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone": "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone",
         "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays": "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays",
         "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware": "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware",
@@ -825,9 +832,16 @@
         "Mention item returned or share what you loved about our service...": "वापस किए गए सामान का उल्लेख करें या अपनी राय साझा करें...",
         "Write your experience with this product...": "इस उत्पाद के साथ अपना अनुभव लिखें...",
         "keywords": "कीवर्ड",
+        "SAVE UP TO $200": "$200 तक की बचत",
         "SPECIAL DISCOUNT 45%": "विशेष छूट 45%",
-        "FLASH SALE UP TO ": "फ्लैश सेल  तक की छूट",
+        "FLASH SALE UP TO $300": "फ्लैश सेल $300 तक की छूट",
         "NEW ARRIVAL 2026": "नया आगमन 2026",
+        "SAVE UP TO 50% OFF": "50% तक की भारी छूट",
+        "hero_slide_0": "चुनिंदा<br>लैपटॉप और<br>डेस्कटॉप या<br>स्मार्टफोन पर",
+        "hero_slide_1": "नेक्स्ट-जेन AI<br>स्मार्ट वॉइस<br>सराउंड साउंड<br>स्पीकर्स",
+        "hero_slide_2": "हाई-एंड प्रो<br>सिनेमैटिक 4K<br>DSLR कैमरा<br>किट्स",
+        "hero_slide_3": "अल्ट्रा सिनेमैटिक<br>4K क्वाडकॉप्टर<br>GPS एरियल<br>ड्रोन्स",
+        "hero_slide_4": "वायरलेस HD<br>स्टूडियो नॉइज़<br>कैंसलिंग<br>हेडफ़ोन",
         "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone": "चुनिंदा<br>लैपटॉप और<br>डेस्कटॉप या<br>स्मार्टफोन पर",
         "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays": "नेक्स्ट-जेन 4K<br>स्मार्ट OLED<br>मॉनिटर और<br>डिस्प्ले",
         "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware": "हाई-एंड प्रो<br>वर्कस्टेशन और<br>स्टूडियो गियर<br>हार्डवेयर",
@@ -1221,10 +1235,16 @@
         "Full street address, city, zip code": "Полный адрес, город, индекс",
         "Mention item returned or share what you loved about our service...": "Укажите возвращаемый товар или поделитесь впечатлениями...",
         "Write your experience with this product...": "Напишите ваши впечатления об этом товаре...",
-        "keywords": "ключевые слова",
+        "SAVE UP TO $200": "ЭКОНОМИЯ ДО $200",
         "SPECIAL DISCOUNT 45%": "СПЕЦИАЛЬНАЯ СКИДКА 45%",
-        "FLASH SALE UP TO ": "ФЛЭШ-РАСПРОДАЖА ДО ",
+        "FLASH SALE UP TO $300": "ФЛЭШ-РАСПРОДАЖА ДО $300",
         "NEW ARRIVAL 2026": "НОВИНКА 2026 ГОДА",
+        "SAVE UP TO 50% OFF": "СКИДКА ДО 50%",
+        "hero_slide_0": "На выбранные<br>ноутбуки и<br>ПК или<br>смартфоны",
+        "hero_slide_1": "AI Смарт<br>колонки с<br>объемным<br>звуком",
+        "hero_slide_2": "Профессиональные<br>кинокамеры 4K<br>DSLR и<br>комплекты",
+        "hero_slide_3": "Ультракинематографичные<br>4K квадрокоптеры<br>GPS аэросъемки<br>дроны",
+        "hero_slide_4": "Беспроводные HD<br>студийные наушники<br>с шумоподавлением",
         "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone": "На выбранные<br>ноутбуки и<br>ПК или<br>смартфоны",
         "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays": "Новое поколение 4K<br>Smart OLED<br>мониторов и<br>дисплеев",
         "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware": "Профессиональные<br>рабочие станции и<br>студийное<br>оборудование",
@@ -1618,10 +1638,16 @@
         "Full street address, city, zip code": "詳細な住所、都市、郵便番号",
         "Mention item returned or share what you loved about our service...": "返品する商品やサービスの感想をご記入ください...",
         "Write your experience with this product...": "この商品の感想をお書きください...",
-        "keywords": "キーワード",
+        "SAVE UP TO $200": "最大$200割引",
         "SPECIAL DISCOUNT 45%": "特別割引 45%",
-        "FLASH SALE UP TO ": "フラッシュセール 最大",
+        "FLASH SALE UP TO $300": "フラッシュセール 最大$300割引",
         "NEW ARRIVAL 2026": "2026年最新モデル",
+        "SAVE UP TO 50% OFF": "最大50%オフ",
+        "hero_slide_0": "厳選された<br>ノートPC＆<br>デスクトップ・<br>スマホ対象",
+        "hero_slide_1": "次世代AI<br>スマート音声<br>サラウンド音響<br>スピーカー",
+        "hero_slide_2": "ハイエンドPro<br>シネマティック4K<br>一眼レフカメラ<br>キット",
+        "hero_slide_3": "超高画質4K<br>クアッドコプター<br>空撮用GPS<br>ドローン",
+        "hero_slide_4": "ワイヤレスHD<br>スタジオ用ノイズ<br>キャンセリング<br>ヘッドホン",
         "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone": "厳選された<br>ノートPC＆<br>デスクトップ・<br>スマホ対象",
         "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays": "次世代4K<br>スマートOLED<br>モニター＆<br>ディスプレイ",
         "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware": "ハイエンドPro<br>ワークステーション＆<br>スタジオ音響<br>機器",
@@ -2015,10 +2041,16 @@
         "Full street address, city, zip code": "Dirección completa, ciudad, código postal",
         "Mention item returned or share what you loved about our service...": "Menciona el artículo devuelto o comparte tu opinión...",
         "Write your experience with this product...": "Escribe tu experiencia con este producto...",
-        "keywords": "palabras clave",
+        "SAVE UP TO $200": "AHORRA HASTA $200",
         "SPECIAL DISCOUNT 45%": "DESCUENTO ESPECIAL 45%",
-        "FLASH SALE UP TO ": "VENTA FLASH HASTA ",
+        "FLASH SALE UP TO $300": "VENTA FLASH HASTA $300",
         "NEW ARRIVAL 2026": "NUEVA LLEGADA 2026",
+        "SAVE UP TO 50% OFF": "AHORRA HASTA UN 50%",
+        "hero_slide_0": "En seleccionados<br>Portátiles y<br>Escritorio o<br>Teléfonos",
+        "hero_slide_1": "Altavoces IA<br>Voz Inteligente<br>y Sonido<br>Envolvente",
+        "hero_slide_2": "Kits de Cámaras<br>DSLR 4K Cine<br>Profesionales de<br>Alta Gama",
+        "hero_slide_3": "Drones GPS<br>Cuadricópteros<br>4K Aéreos<br>Ultra Cine",
+        "hero_slide_4": "Auriculares HD<br>Inalámbricos con<br>Cancelación de<br>Ruido",
         "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone": "En seleccionados<br>Portátiles y<br>Escritorio o<br>Teléfonos",
         "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays": "Monitores y<br>Pantallas OLED<br>Inteligentes 4K<br>de Nueva Generación",
         "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware": "Estaciones Pro<br>y Equipos de<br>Estudio de Alta<br>Gama",
@@ -2412,10 +2444,16 @@
         "Full street address, city, zip code": "Vollständige Adresse, Stadt, PLZ",
         "Mention item returned or share what you loved about our service...": "Geben Sie den Rücksendeartikel an oder teilen Sie Ihr Feedback...",
         "Write your experience with this product...": "Schreiben Sie Ihre Erfahrung mit diesem Produkt...",
-        "keywords": "Suchbegriffe",
+        "SAVE UP TO $200": "SPAREN SIE BIS ZU 200$",
         "SPECIAL DISCOUNT 45%": "SONDERRABATT 45%",
-        "FLASH SALE UP TO ": "BLITZVERKAUF BIS ZU 300$",
+        "FLASH SALE UP TO $300": "BLITZANGEBOT BIS ZU 300$",
         "NEW ARRIVAL 2026": "NEUHEIT 2026",
+        "SAVE UP TO 50% OFF": "BIS ZU 50% SPAREN",
+        "hero_slide_0": "Auf ausgewählte<br>Laptops &<br>Desktop oder<br>Smartphones",
+        "hero_slide_1": "Next-Gen AI<br>Smart-Voice<br>Surround-Sound<br>Lautsprecher",
+        "hero_slide_2": "High-End Pro<br>Kinoreife 4K<br>DSLR-Kamera<br>Kits",
+        "hero_slide_3": "Ultra-Cinematic<br>4K Quadrocopter<br>GPS Luftaufnahmen<br>Drohnen",
+        "hero_slide_4": "Kabellose HD<br>Studio-Kopfhörer<br>mit Noise-<br>Cancelling",
         "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone": "Auf ausgewählte<br>Laptops &<br>Desktop oder<br>Smartphones",
         "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays": "Next-Gen 4K<br>Smart-OLED<br>Monitore &<br>Displays",
         "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware": "High-End Pro<br>Workstations &<br>Studio-Gear<br>Hardware",
@@ -2809,10 +2847,16 @@
         "Full street address, city, zip code": "العنوان بالكامل، المدينة، الرمز البريدي",
         "Mention item returned or share what you loved about our service...": "اذكر المنتج المرتجع أو شارك تجربتك معنا...",
         "Write your experience with this product...": "اكتب تجربتك مع هذا المنتج...",
-        "keywords": "كلمات البحث",
+        "SAVE UP TO $200": "وفر حتى 200$",
         "SPECIAL DISCOUNT 45%": "خصم خاص 45%",
-        "FLASH SALE UP TO ": "تخفيضات كبرى حتى 300$",
+        "FLASH SALE UP TO $300": "تخفيضات كبرى حتى 300$",
         "NEW ARRIVAL 2026": "وصل حديثاً 2026",
+        "SAVE UP TO 50% OFF": "وفر حتى 50%",
+        "hero_slide_0": "على أجهزة مختارة من<br>اللابتوب والكمبيوتر<br>أو الهواتف<br>الذكية",
+        "hero_slide_1": "مكبرات صوت ذكية<br>بالذكاء الاصطناعي<br>وصوت محيطي<br>فائق",
+        "hero_slide_2": "مجموعات كاميرات<br>DSLR احترافية<br>بدقة 4K سينمائية<br>فائقة",
+        "hero_slide_3": "طائرات درون كوادكوبتر<br>وكاميرات سينمائية<br>بدقة 4K بنظام GPS",
+        "hero_slide_4": "سماعات رأس لاسلكية<br>عالية الدقة وعازلة<br>للضوضاء<br>للاستوديو",
         "On Selected<br>Laptops &<br>Desktop Or<br>Smartphone": "على أجهزة مختارة من<br>اللابتوب والكمبيوتر<br>أو الهواتف<br>الذكية",
         "Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays": "الجيل القادم من شاشات<br>4K سمارت أوليد<br>المتطورة",
         "High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware": "محطات عمل احترافية<br>ومعدات استوديو<br>فائقة الأداء",
@@ -2830,7 +2874,7 @@
         { id: 'phone-1', name: 'Samsung Galaxy Cyan Smartphone', category: 'SmartPhone', price: 850.00, oldPrice: 990.00, img: 'assets/item_cyan_phone.png', rating: 5, stock: 18 },
         { id: 'phone-hand', name: 'SmartPhone Touch OLED Edition', category: 'SmartPhone', price: 1050.00, oldPrice: 1250.00, img: 'assets/item_phone_hand_clean.png', rating: 5, stock: 22 },
         { id: 'tab-1', name: 'Digital Tablet with Precision Pen', category: 'Electronics', price: 720.00, oldPrice: 850.00, img: 'assets/item_tablet_pen.png', rating: 5, stock: 14 },
-        { id: 'drone-1', name: '4K Ultra Quadcopter Drone Master', category: 'Electronics', price: 499.00, oldPrice: 650.00, img: 'assets/product_drone.jpg', rating: 5, stock: 8 },
+        { id: 'drone-1', name: '4K Ultra Quadcopter Drone Master', category: 'Electronics', price: 499.00, oldPrice: 650.00, img: 'assets/drone_transparent.png', rating: 5, stock: 8 },
         { id: 'head-1', name: 'Wireless Studio Headphones HD', category: 'Audio', price: 189.00, oldPrice: 270.00, img: 'assets/floating_headphones_hd.png', rating: 5, stock: 30 },
         { id: 'earbuds-1', name: 'Pure Bass ANC Wireless Earbuds', category: 'Audio', price: 129.00, oldPrice: 179.00, img: 'assets/product_earbuds.jpg', rating: 5, stock: 35 },
         { id: 'web-1', name: 'HD Webcam Clip Pro 1080P', category: 'Accessories', price: 59.00, oldPrice: 89.00, img: 'assets/bestseller_webcam.png', rating: 5, stock: 40 },
@@ -3201,6 +3245,9 @@
                 // Don't modify currency selector option text (EUR, USD, etc.)
                 if (element.classList && element.classList.contains('top-select-currency')) return;
 
+                // Don't modify elements handled by data-i18n-html
+                if (element.hasAttribute && element.hasAttribute('data-i18n-html')) return;
+
                 for (let child = element.firstChild; child; child = child.nextSibling) {
                     if (child.nodeType === 3) { // Node.TEXT_NODE
                         if (child._origVal === undefined) {
@@ -3256,6 +3303,22 @@
                     el.setAttribute('aria-label', el.dataset.origAria);
                 } else {
                     el.setAttribute('aria-label', this.translateString(el.dataset.origAria, lang));
+                }
+            });
+
+            // Translate rich HTML elements (e.g. hero slide headings)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                if (!el.dataset.origHtml) {
+                    el.dataset.origHtml = el.innerHTML.trim();
+                }
+                const key = el.getAttribute('data-i18n-html');
+                const dict = I18N_DICTIONARY[lang] || {};
+                if (lang === 'en') {
+                    el.innerHTML = el.dataset.origHtml;
+                } else if (dict[key]) {
+                    el.innerHTML = dict[key];
+                } else if (dict[el.dataset.origHtml]) {
+                    el.innerHTML = dict[el.dataset.origHtml];
                 }
             });
 
@@ -3999,90 +4062,95 @@
             headphoneCard.classList.add('electro-slide-right');
         }
 
-        // --- 12B. Hero Showcase Auto-Slider (Every 1.8 Seconds) ---
+        // --- 12B. Hero Showcase Horizontal Auto-Slider (Every 1.8 Seconds) ---
         const heroSection = document.querySelector('.hero-showcase');
         if (heroSection) {
-            const heroPrev = heroSection.querySelector('.hero-arrows .arrow-btn:first-child');
-            const heroNext = heroSection.querySelector('.hero-arrows .arrow-btn:last-child');
-            const heroHeading = heroSection.querySelector('.hero-heading');
-            const heroEyebrow = heroSection.querySelector('.hero-eyebrow');
-            const heroImg = heroSection.querySelector('.monitor-img');
-
-            const heroSlides = [
-                {
-                    eyebrow: 'SAVE UP TO $200',
-                    heading: 'On Selected<br>Laptops &<br>Desktop Or<br>Smartphone',
-                    img: 'assets/monitor_transparent.png'
-                },
-                {
-                    eyebrow: 'SPECIAL DISCOUNT 45%',
-                    heading: 'Next-Gen 4K<br>Smart OLED<br>Monitors &<br>Displays',
-                    img: 'assets/product_smartspeaker.jpg'
-                },
-                {
-                    eyebrow: 'FLASH SALE UP TO $300',
-                    heading: 'High-End Pro<br>Workstations &<br>Studio Gear<br>Hardware',
-                    img: 'assets/item_laptop.png'
-                },
-                {
-                    eyebrow: 'NEW ARRIVAL 2026',
-                    heading: 'Ultra Cinematic<br>4K Quadcopter<br>Drones &<br>Cameras',
-                    img: 'assets/product_drone.jpg'
-                }
-            ];
-
-            let heroIdx = 0;
-
-            function setHeroSlide(idx) {
-                heroIdx = (idx + heroSlides.length) % heroSlides.length;
-                const slide = heroSlides[heroIdx];
-                const currentLang = I18n.getCurrent();
-                if (heroHeading) {
-                    heroHeading.innerHTML = currentLang === 'en' ? slide.heading : I18n.translateString(slide.heading, currentLang);
-                }
-                if (heroEyebrow) {
-                    heroEyebrow.textContent = currentLang === 'en' ? slide.eyebrow : I18n.translateString(slide.eyebrow, currentLang);
-                }
-                if (heroImg) {
-                    heroImg.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
-                    heroImg.style.opacity = '0';
-                    heroImg.style.transform = 'scale(0.92)';
-                    setTimeout(() => {
-                        heroImg.src = slide.img;
-                        heroImg.style.opacity = '1';
-                        heroImg.style.transform = 'scale(1)';
-                    }, 240);
-                }
-            }
-
-            // Auto-slide every 1.8 seconds (1800ms) as requested
-            let heroTimer = setInterval(() => {
-                setHeroSlide(heroIdx + 1);
-            }, 1800);
-
-            // Pause on hover
+            const track = heroSection.querySelector('#hero-slider-track') || heroSection.querySelector('.hero-carousel-track');
+            const slides = heroSection.querySelectorAll('.hero-slide-item');
+            const heroPrev = heroSection.querySelector('#hero-prev-btn') || heroSection.querySelector('.hero-arrows .arrow-btn:first-child');
+            const heroNext = heroSection.querySelector('#hero-next-btn') || heroSection.querySelector('.hero-arrows .arrow-btn:last-child');
             const heroMainCard = heroSection.querySelector('.hero-main-card');
-            if (heroMainCard) {
-                heroMainCard.addEventListener('mouseenter', () => clearInterval(heroTimer));
-                heroMainCard.addEventListener('mouseleave', () => {
-                    clearInterval(heroTimer);
-                    heroTimer = setInterval(() => setHeroSlide(heroIdx + 1), 1800);
-                });
-            }
 
-            if (heroPrev) {
-                heroPrev.addEventListener('click', (e) => {
-                    e.preventDefault();
+            if (track && slides.length > 0) {
+                let heroIdx = 0;
+                const totalSlides = slides.length;
+
+                function updateHeroSlide(idx) {
+                    heroIdx = (idx + totalSlides) % totalSlides;
+                    track.style.transform = 'translateX(-' + (heroIdx * 100) + '%)';
+                    slides.forEach((slide, i) => {
+                        if (i === heroIdx) {
+                            slide.classList.add('is-active');
+                        } else {
+                            slide.classList.remove('is-active');
+                        }
+                    });
+                }
+
+                // Initial slide setup
+                updateHeroSlide(0);
+
+                // Auto-advance horizontally every 1.8 seconds (1800ms) as requested
+                let heroTimer = setInterval(() => {
+                    updateHeroSlide(heroIdx + 1);
+                }, 1800);
+
+                const restartTimer = () => {
                     clearInterval(heroTimer);
-                    setHeroSlide(heroIdx - 1);
-                });
-            }
-            if (heroNext) {
-                heroNext.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    clearInterval(heroTimer);
-                    setHeroSlide(heroIdx + 1);
-                });
+                    heroTimer = setInterval(() => updateHeroSlide(heroIdx + 1), 1800);
+                };
+
+                // Pause on hover
+                if (heroMainCard) {
+                    heroMainCard.addEventListener('mouseenter', () => clearInterval(heroTimer));
+                    heroMainCard.addEventListener('mouseleave', restartTimer);
+                }
+
+                // Prev / Next button listeners
+                if (heroPrev) {
+                    heroPrev.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        clearInterval(heroTimer);
+                        updateHeroSlide(heroIdx - 1);
+                        restartTimer();
+                    });
+                }
+                if (heroNext) {
+                    heroNext.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        clearInterval(heroTimer);
+                        updateHeroSlide(heroIdx + 1);
+                        restartTimer();
+                    });
+                }
+
+                // Touch swipe support for mobile devices
+                if (heroMainCard) {
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+
+                    heroMainCard.addEventListener('touchstart', (e) => {
+                        if (e.changedTouches && e.changedTouches[0]) {
+                            touchStartX = e.changedTouches[0].screenX;
+                        }
+                    }, { passive: true });
+
+                    heroMainCard.addEventListener('touchend', (e) => {
+                        if (e.changedTouches && e.changedTouches[0]) {
+                            touchEndX = e.changedTouches[0].screenX;
+                            const diff = touchEndX - touchStartX;
+                            if (Math.abs(diff) > 40) {
+                                clearInterval(heroTimer);
+                                if (diff < 0) {
+                                    updateHeroSlide(heroIdx + 1);
+                                } else {
+                                    updateHeroSlide(heroIdx - 1);
+                                }
+                                restartTimer();
+                            }
+                        }
+                    }, { passive: true });
+                }
             }
         }
 

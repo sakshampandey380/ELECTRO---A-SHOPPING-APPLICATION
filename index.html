@@ -210,32 +210,108 @@
         <div class="container hero-layout">
             <!-- Left Hero Banner (~73% width) -->
             <div class="hero-main-card">
-                <!-- Monitor Graphic Illustration -->
-                <div class="hero-graphic">
-                    <img src="assets/monitor_transparent.png" alt="Desktop and Online Shopping Illustration" class="monitor-img">
-                </div>
+                <div class="hero-carousel-viewport">
+                    <div class="hero-carousel-track" id="hero-slider-track">
+                        <!-- Slide 0: Computers & Laptops -->
+                        <div class="hero-slide-item is-active" data-slide-index="0">
+                            <div class="hero-graphic">
+                                <img src="assets/monitor_transparent.png" alt="Desktop Monitor and Online Shopping" class="monitor-img hero-product-img">
+                            </div>
+                            <div class="hero-details">
+                                <span class="hero-eyebrow">SAVE UP TO $200</span>
+                                <h1 class="hero-heading" data-i18n-html="hero_slide_0">
+                                    On Selected<br>
+                                    Laptops &amp;<br>
+                                    Desktop Or<br>
+                                    Smartphone
+                                </h1>
+                                <p class="hero-terms">Terms and Condition Apply</p>
+                                <a href="offers.html" class="hero-cta-btn">Shop Now</a>
+                            </div>
+                        </div>
 
-                <!-- Hero Promotional Typography -->
-                <div class="hero-details">
-                    <span class="hero-eyebrow">SAVE UP TO A $200</span>
-                    <h1 class="hero-heading">
-                        On Selected<br>
-                        Laptops &<br>
-                        Desktop Or<br>
-                        Smartphone
-                    </h1>
-                    <p class="hero-terms">Terms and Condition Apply</p>
-                    <a href="#" class="hero-cta-btn">Shop Now</a>
+                        <!-- Slide 1: Smart AI Voice Speaker -->
+                        <div class="hero-slide-item" data-slide-index="1">
+                            <div class="hero-graphic">
+                                <img src="assets/speaker_transparent.png" alt="Smart AI Voice Speaker" class="monitor-img hero-product-img">
+                            </div>
+                            <div class="hero-details">
+                                <span class="hero-eyebrow">SPECIAL DISCOUNT 45%</span>
+                                <h1 class="hero-heading" data-i18n-html="hero_slide_1">
+                                    Next-Gen AI<br>
+                                    Smart Voice<br>
+                                    Surround Sound<br>
+                                    Speakers
+                                </h1>
+                                <p class="hero-terms">Terms and Condition Apply</p>
+                                <a href="offers.html" class="hero-cta-btn">Shop Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2: Cinematic 4K DSLR Camera -->
+                        <div class="hero-slide-item" data-slide-index="2">
+                            <div class="hero-graphic">
+                                <img src="assets/floating_camera_hd.png" alt="Canon EOS DSLR Camera" class="monitor-img hero-product-img">
+                            </div>
+                            <div class="hero-details">
+                                <span class="hero-eyebrow">FLASH SALE UP TO $300</span>
+                                <h1 class="hero-heading" data-i18n-html="hero_slide_2">
+                                    High-End Pro<br>
+                                    Cinematic 4K<br>
+                                    DSLR Camera<br>
+                                    Kits
+                                </h1>
+                                <p class="hero-terms">Terms and Condition Apply</p>
+                                <a href="single-product.html" class="hero-cta-btn">Shop Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3: 4K Ultra Drone -->
+                        <div class="hero-slide-item" data-slide-index="3">
+                            <div class="hero-graphic">
+                                <img src="assets/drone_transparent.png" alt="Ultra 4K Drone" class="monitor-img hero-product-img">
+                            </div>
+                            <div class="hero-details">
+                                <span class="hero-eyebrow">NEW ARRIVAL 2026</span>
+                                <h1 class="hero-heading" data-i18n-html="hero_slide_3">
+                                    Ultra Cinematic<br>
+                                    4K Quadcopter<br>
+                                    GPS Aerial<br>
+                                    Drones
+                                </h1>
+                                <p class="hero-terms">Terms and Condition Apply</p>
+                                <a href="offers.html" class="hero-cta-btn">Shop Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4: Wireless HD Studio Headphones -->
+                        <div class="hero-slide-item" data-slide-index="4">
+                            <div class="hero-graphic">
+                                <img src="assets/floating_headphones_hd.png" alt="Studio Wireless Headphones" class="monitor-img hero-product-img">
+                            </div>
+                            <div class="hero-details">
+                                <span class="hero-eyebrow">SAVE UP TO 50% OFF</span>
+                                <h1 class="hero-heading" data-i18n-html="hero_slide_4">
+                                    Wireless HD<br>
+                                    Studio Noise<br>
+                                    Cancelling<br>
+                                    Headphones
+                                </h1>
+                                <p class="hero-terms">Terms and Condition Apply</p>
+                                <a href="offers.html" class="hero-cta-btn">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Carousel Slider Navigation Arrows -->
                 <div class="hero-arrows">
-                    <button class="arrow-btn" aria-label="Previous Slide">
+                    <button class="arrow-btn hero-arrow-prev" id="hero-prev-btn" aria-label="Previous Slide">
                         <svg class="icon icon-arrow" viewBox="0 0 448 512" width="12" height="12" fill="currentColor">
                             <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
                         </svg>
                     </button>
-                    <button class="arrow-btn" aria-label="Next Slide">
+                    <button class="arrow-btn hero-arrow-next" id="hero-next-btn" aria-label="Next Slide">
                         <svg class="icon icon-arrow" viewBox="0 0 448 512" width="12" height="12" fill="currentColor">
                             <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
                         </svg>

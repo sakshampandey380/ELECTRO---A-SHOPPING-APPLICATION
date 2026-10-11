@@ -2130,3 +2130,161 @@ body.body-searching .hide-on-search {
     color: #ffffff;
     border-color: #ef4444;
 }
+
+/* ==========================================================================
+   16. HERO ANIMATED HORIZONTAL SLIDER (LEFT TO RIGHT / RIGHT TO LEFT)
+   ========================================================================== */
+.hero-main-card {
+    position: relative !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    display: block !important;
+    background-color: var(--bg-hero) !important;
+}
+
+.hero-carousel-viewport {
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+    position: relative !important;
+}
+
+.hero-carousel-track {
+    display: flex !important;
+    height: 100% !important;
+    width: 100% !important;
+    transition: transform 0.75s cubic-bezier(0.25, 1, 0.35, 1) !important;
+    will-change: transform;
+}
+
+.hero-slide-item {
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 40px !important;
+    padding: 40px 60px 40px 50px !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+.hero-slide-item .hero-graphic {
+    flex: 0 0 44% !important;
+    max-width: 440px !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.75s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.6s ease !important;
+}
+
+.hero-slide-item .hero-product-img {
+    width: 100% !important;
+    max-width: 410px !important;
+    max-height: 380px !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
+    background: transparent !important;
+    filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.08)) !important;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.35, 1) !important;
+}
+
+.hero-slide-item:hover .hero-product-img {
+    transform: scale(1.05) translateY(-6px) !important;
+}
+
+.hero-slide-item .hero-details {
+    flex: 0 0 52% !important;
+    padding-left: 10px !important;
+    z-index: 2 !important;
+    transition: transform 0.75s cubic-bezier(0.25, 1, 0.35, 1), opacity 0.6s ease !important;
+}
+
+/* Staggered dynamic sliding entrance feel */
+.hero-slide-item:not(.is-active) .hero-graphic {
+    opacity: 0.4 !important;
+    transform: scale(0.92) translateX(-25px) !important;
+}
+
+.hero-slide-item.is-active .hero-graphic {
+    opacity: 1 !important;
+    transform: scale(1) translateX(0) !important;
+}
+
+.hero-slide-item:not(.is-active) .hero-details {
+    opacity: 0.4 !important;
+    transform: translateX(25px) !important;
+}
+
+.hero-slide-item.is-active .hero-details {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+/* Stationary Arrow Buttons */
+.hero-main-card .hero-arrows {
+    position: absolute !important;
+    bottom: 30px !important;
+    right: 35px !important;
+    z-index: 10 !important;
+    display: flex !important;
+    gap: 12px !important;
+}
+
+.hero-main-card .arrow-btn {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background: #e58840 !important;
+    color: #ffffff !important;
+    border: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 10px rgba(229, 136, 64, 0.35) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.hero-main-card .arrow-btn:hover {
+    background: #c96d27 !important;
+    transform: scale(1.12) !important;
+    box-shadow: 0 6px 16px rgba(229, 136, 64, 0.5) !important;
+}
+
+.hero-main-card .arrow-btn:active {
+    transform: scale(0.94) !important;
+}
+
+/* Responsive Slider Breakpoints */
+@media (max-width: 900px) {
+    .hero-slide-item {
+        padding: 30px 20px !important;
+        gap: 20px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slide-item {
+        flex-direction: column !important;
+        padding: 25px 15px 75px 15px !important;
+        text-align: center !important;
+    }
+    .hero-slide-item .hero-graphic {
+        flex: 0 0 auto !important;
+        max-width: 280px !important;
+        margin-bottom: 20px !important;
+    }
+    .hero-slide-item .hero-details {
+        flex: 0 0 auto !important;
+        padding-left: 0 !important;
+    }
+    .hero-main-card .hero-arrows {
+        bottom: 16px !important;
+        right: 50% !important;
+        transform: translateX(50%) !important;
+    }
+}
