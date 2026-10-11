@@ -389,6 +389,17 @@
     <script src="electro-core.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const existingUser = Electro.Auth.getCurrentUser();
+            if (existingUser) {
+                const card = document.querySelector('.auth-card');
+                if (card) {
+                    const notice = document.createElement('div');
+                    notice.style.cssText = 'background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:12px; margin-bottom:18px; text-align:center; font-size:13px; color:#166534;';
+                    notice.innerHTML = `You are currently logged in as <strong>${existingUser.name}</strong>. <a href="index.html" style="color:#e58840; font-weight:700; margin-left:6px; text-decoration:none;">Go To Home Page 🏠</a>`;
+                    card.insertBefore(notice, card.firstChild);
+                }
+            }
+
             const tabLogin = document.getElementById('tab-btn-login');
             const tabRegister = document.getElementById('tab-btn-register');
             const formLogin = document.getElementById('form-login');
@@ -425,7 +436,7 @@
                 if (res.success) {
                     Electro.showToast(`Welcome back, ${res.user.name}! 👋`, 'success');
                     setTimeout(() => {
-                        window.location.href = 'profile.html';
+                        window.location.href = 'index.html';
                     }, 800);
                 } else {
                     Electro.showToast(res.message, 'error');

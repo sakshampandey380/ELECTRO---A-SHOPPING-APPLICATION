@@ -3847,7 +3847,7 @@
         const subtotal = Cart.getSubtotal();
         const currentCurrency = Currency.getCurrent();
 
-        document.querySelectorAll('.header-cart-badge, [data-cart-count]').forEach(el => {
+        document.querySelectorAll('.header-cart-badge, [data-cart-count], #blinkit-cart-badge').forEach(el => {
             el.textContent = count;
             el.style.display = count > 0 ? 'inline-flex' : 'none';
         });
@@ -4172,6 +4172,275 @@
                 });
             }
         }
+
+        // --- 12D. Related Products Carousel (Hover to Cycle All Products & Click to Jump) ---
+        initRelatedProductsHoverSlider();
+    }
+
+    // ==========================================================================
+    // 12D-HELPER. RELATED PRODUCTS WORKABLE HOVER & LOOP SLIDER
+    // ==========================================================================
+    function initRelatedProductsHoverSlider() {
+        const relSlider = document.getElementById('related-products-slider');
+        if (!relSlider) return;
+        if (relSlider.dataset.hoverSliderInit === 'true') return;
+        relSlider.dataset.hoverSliderInit = 'true';
+
+        const prevBtn = document.getElementById('rel-side-prev');
+        const nextBtn = document.getElementById('rel-side-next');
+        const headerPrev = document.getElementById('rel-prev-btn');
+        const headerNext = document.getElementById('rel-next-btn');
+        const prevBtns = [headerPrev, prevBtn].filter(Boolean);
+        const nextBtns = [headerNext, nextBtn].filter(Boolean);
+
+        const cards = Array.from(relSlider.querySelectorAll('.reference-expand-card'));
+        const dotsContainer = document.getElementById('related-carousel-dots');
+
+        // Dynamically create centered pagination dots
+        if (dotsContainer && cards.length > 0) {
+            dotsContainer.innerHTML = '';
+            cards.forEach((card, idx) => {
+                const dot = document.createElement('button');
+                dot.className = `related-carousel-dot ${idx === 0 ? 'is-active' : ''}`;
+                dot.setAttribute('type', 'button');
+                dot.setAttribute('aria-label', `View product ${idx + 1}`);
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    stopHoverSlide();
+                    const cardW = card.offsetWidth || 240;
+                    relSlider.scrollTo({
+                        left: idx * (cardW + 16),
+                        behavior: 'smooth'
+                    });
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateActiveDot() {
+            if (!dotsContainer) return;
+            const dots = dotsContainer.querySelectorAll('.related-carousel-dot');
+            if (!dots.length) return;
+            const cardW = (cards[0] ? cards[0].offsetWidth : 240) + 16;
+            const activeIdx = Math.min(
+                dots.length - 1,
+                Math.max(0, Math.round(relSlider.scrollLeft / cardW))
+            );
+            dots.forEach((dot, idx) => {
+                if (idx === activeIdx) {
+                    dot.classList.add('is-active');
+                } else {
+                    dot.classList.remove('is-active');
+                }
+            });
+        }
+
+        relSlider.addEventListener('scroll', updateActiveDot, { passive: true });
+
+        let hoverRafId = null;
+        let pauseTimer = null;
+        let lastTime = 0;
+        const glideSpeed = 0.22; // ~220px/s smooth comfortable reading speed
+
+        function startHoverSlide(direction) {
+            stopHoverSlide();
+            lastTime = performance.now();
+
+            function glide(currentTime) {
+                const dt = currentTime - lastTime;
+                lastTime = currentTime;
+                const maxScroll = relSlider.scrollWidth - relSlider.clientWidth;
+
+                if (maxScroll <= 2) return;
+
+                if (direction > 0) {
+                    // Sliding right towards the end
+                    if (relSlider.scrollLeft >= maxScroll - 3) {
+                        // Reached end: smoothly loop back to start so all products keep displaying
+                        relSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                        pauseTimer = setTimeout(() => {
+                            lastTime = performance.now();
+                            hoverRafId = requestAnimationFrame(glide);
+                        }, 750);
+                        return;
+                    } else {
+                        relSlider.scrollLeft += dt * glideSpeed;
+                    }
+                } else {
+                    // Sliding left towards the start
+                    if (relSlider.scrollLeft <= 3) {
+                        // Reached start: smoothly loop to end
+                        relSlider.scrollTo({ left: maxScroll, behavior: 'smooth' });
+                        pauseTimer = setTimeout(() => {
+                            lastTime = performance.now();
+                            hoverRafId = requestAnimationFrame(glide);
+                        }, 750);
+                        return;
+                    } else {
+                        relSlider.scrollLeft -= dt * glideSpeed;
+                    }
+                }
+
+                hoverRafId = requestAnimationFrame(glide);
+            }
+
+            hoverRafId = requestAnimationFrame(glide);
+        }
+
+        function stopHoverSlide() {
+            if (hoverRafId) {
+                cancelAnimationFrame(hoverRafId);
+                hoverRafId = null;
+            }
+            if (pauseTimer) {
+                clearTimeout(pauseTimer);
+                pauseTimer = null;
+            }
+        }
+
+        function jumpCard(direction) {
+            stopHoverSlide();
+            const cardW = (cards[0] ? cards[0].offsetWidth : 240) + 16;
+            const maxScroll = relSlider.scrollWidth - relSlider.clientWidth;
+            if (direction > 0) {
+                if (relSlider.scrollLeft >= maxScroll - 10) {
+                    relSlider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    relSlider.scrollBy({ left: cardW, behavior: 'smooth' });
+                }
+            } else {
+                if (relSlider.scrollLeft <= 10) {
+                    relSlider.scrollTo({ left: maxScroll, behavior: 'smooth' });
+                } else {
+                    relSlider.scrollBy({ left: -cardW, behavior: 'smooth' });
+                }
+            }
+        }
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('mouseenter', () => startHoverSlide(-1));
+            btn.addEventListener('mouseleave', stopHoverSlide);
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                jumpCard(-1);
+            });
+        });
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('mouseenter', () => startHoverSlide(1));
+            btn.addEventListener('mouseleave', stopHoverSlide);
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                jumpCard(1);
+            });
+        });
+
+        // Pause sliding while hovering over any product card for interaction
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', stopHoverSlide);
+        });
+    }
+
+    // ==========================================================================
+    // 12E. BLINKIT-STYLE MOBILE APP ARCHITECTURE
+    // ==========================================================================
+    function initBlinkitMobileApp() {
+        if (!document.getElementById('blinkit-mobile-nav')) {
+            const path = (window.location.pathname || '').toLowerCase();
+            const isHome = path.endsWith('index.html') || path.endsWith('/') || !path.includes('.html');
+            const isOffers = path.includes('offers.html');
+            const isCart = path.includes('cart.html');
+            const isProfile = path.includes('profile.html');
+
+            const count = Cart.getCount();
+
+            const nav = document.createElement('nav');
+            nav.id = 'blinkit-mobile-nav';
+            nav.className = 'blinkit-mobile-bottom-nav';
+            nav.setAttribute('aria-label', 'Mobile Navigation');
+            nav.innerHTML = `
+                <a href="index.html" class="blinkit-tab-item ${isHome ? 'is-active' : ''}">
+                    <div class="blinkit-tab-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                    </div>
+                    <span class="blinkit-tab-label">Home</span>
+                </a>
+                <a href="offers.html" class="blinkit-tab-item ${isOffers && !window.location.hash ? 'is-active' : ''}">
+                    <div class="blinkit-tab-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                    </div>
+                    <span class="blinkit-tab-label">Categories</span>
+                </a>
+                <a href="offers.html#deals" class="blinkit-tab-item blinkit-tab-deals">
+                    <div class="blinkit-tab-icon" style="position: relative;">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span class="blinkit-badge-hot">SALE</span>
+                    </div>
+                    <span class="blinkit-tab-label">Offers</span>
+                </a>
+                <a href="cart.html" class="blinkit-tab-item ${isCart ? 'is-active' : ''}">
+                    <div class="blinkit-tab-icon" style="position: relative;">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span class="blinkit-cart-count" id="blinkit-cart-badge" style="${count > 0 ? '' : 'display:none;'}">${count}</span>
+                    </div>
+                    <span class="blinkit-tab-label">Cart</span>
+                </a>
+                <a href="${Auth.getCurrentUser() ? 'profile.html' : 'auth.html'}" class="blinkit-tab-item ${isProfile ? 'is-active' : ''}">
+                    <div class="blinkit-tab-icon">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <span class="blinkit-tab-label">${Auth.getCurrentUser() ? 'Account' : 'Login'}</span>
+                </a>
+            `;
+            document.body.appendChild(nav);
+        }
+
+        // Add Quick Delivery Top Bar for Mobile
+        if (!document.getElementById('blinkit-mobile-top-strip') && window.innerWidth <= 768) {
+            const header = document.querySelector('header');
+            if (header) {
+                const strip = document.createElement('div');
+                strip.id = 'blinkit-mobile-top-strip';
+                strip.className = 'blinkit-mobile-top-strip';
+                const user = Auth.getCurrentUser();
+                strip.innerHTML = `
+                    <div class="blinkit-location-pill">
+                        <span class="blinkit-bolt-icon">⚡</span>
+                        <div class="blinkit-location-text">
+                            <strong class="blinkit-time">Delivery in 10 mins</strong>
+                            <span class="blinkit-address">Home - Ready to Deliver ▾</span>
+                        </div>
+                    </div>
+                    <div class="blinkit-top-right">
+                        ${user ? `
+                            <a href="profile.html" class="blinkit-avatar-btn">
+                                <img src="${user.avatar || 'assets/item_laptop.png'}" alt="${user.name}">
+                            </a>
+                        ` : `
+                            <a href="auth.html" class="blinkit-login-pill">Login</a>
+                        `}
+                    </div>
+                `;
+                header.insertBefore(strip, header.firstChild);
+            }
+        }
     }
 
     // ==========================================================================
@@ -4192,7 +4461,8 @@
         formatPrice: (amount, code) => Currency.formatPrice(amount, code),
         showToast,
         updateNavCartBadge,
-        updateNavProfile
+        updateNavProfile,
+        initRelatedProductsHoverSlider
     };
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -4205,6 +4475,7 @@
         Wishlist.updateWishlistUI();
         initDynamicProductRotators();
         Search.checkURLParams();
+        initBlinkitMobileApp();
     });
 
 })();

@@ -529,28 +529,29 @@
                 </div>
 
                 <!-- ===================================================== -->
-                <!-- 3D. RELATED PRODUCTS SECTION (MATCHING PDF PAGE 4)    -->
+                <!-- 3D. RELATED PRODUCTS SECTION (CLEAN FIT & WORKABLE HOVER ARROWS) -->
                 <!-- ===================================================== -->
-                <div class="reference-centered-header" style="margin-top: 50px;">
-                    <span class="reference-header-eyebrow">Related Products</span>
-                    <p class="reference-header-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, asperiores ducimus sint quos tempore officia similique quia? Libero, pariatur consectetur?
-                    </p>
-                    <div class="reference-carousel-controls">
-                        <button type="button" class="reference-arrow-btn" id="rel-prev-btn" aria-label="Previous">
-                            <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                        </button>
-                        <button type="button" class="reference-arrow-btn" id="rel-next-btn" aria-label="Next">
-                            <svg viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-                        </button>
+                <div class="related-products-section-box">
+                    <div class="related-products-header-box">
+                        <span class="reference-header-eyebrow">Recommended For You</span>
+                        <h2 class="reference-header-main-title">Related Products</h2>
+                        <p class="reference-header-description">
+                            Explore compatible accessories and top-rated companion devices specially matched for your setup.
+                        </p>
                     </div>
-                </div>
 
-                <!-- 6 Related Products Smooth Carousel Grid -->
-                <div class="reference-catalog-grid" id="related-products-slider" style="display: flex; gap: 18px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 15px; scrollbar-width: none;">
+                    <!-- Carousel Viewport with Hover Side Arrows (Positioned Safely Inside) -->
+                    <div class="related-carousel-viewport">
+                        <!-- Left Side Hover/Click Arrow -->
+                        <button type="button" class="related-side-arrow related-arrow-left" id="rel-side-prev" aria-label="Previous Product" title="Hover to slide left, click to step">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                        </button>
+
+                        <!-- 6 Related Products Smooth Carousel Grid -->
+                        <div class="reference-catalog-grid related-products-slider-track" id="related-products-slider">
                     
                     <!-- Rel 1: iPad Pro -->
-                    <div class="reference-expand-card" style="flex: 0 0 calc(25% - 14px); min-width: 230px; padding: 12px 14px;">
+                    <div class="reference-expand-card">
                         <span style="position: absolute; top: 12px; right: 12px; background: #e58840; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; z-index: 5;">Hot</span>
                         <div class="reference-card-top-content" style="flex-direction: column; align-items: center; text-align: center;">
                             <div class="reference-card-thumb-wrapper" style="width: 100%; height: 120px; border-right: none; padding: 0;">
@@ -581,7 +582,7 @@
                     </div>
 
                     <!-- Rel 2: Studio Headphones -->
-                    <div class="reference-expand-card" style="flex: 0 0 calc(25% - 14px); min-width: 230px; padding: 12px 14px;">
+                    <div class="reference-expand-card">
                         <span style="position: absolute; top: 12px; right: 12px; background: #e58840; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; z-index: 5;">Sale</span>
                         <div class="reference-card-top-content" style="flex-direction: column; align-items: center; text-align: center;">
                             <div class="reference-card-thumb-wrapper" style="width: 100%; height: 120px; border-right: none; padding: 0;">
@@ -612,7 +613,7 @@
                     </div>
 
                     <!-- Rel 3: Samsung Galaxy S24 Ultra -->
-                    <div class="reference-expand-card" style="flex: 0 0 calc(25% - 14px); min-width: 230px; padding: 12px 14px;">
+                    <div class="reference-expand-card">
                         <span style="position: absolute; top: 12px; right: 12px; background: #e58840; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; z-index: 5;">New</span>
                         <div class="reference-card-top-content" style="flex-direction: column; align-items: center; text-align: center;">
                             <div class="reference-card-thumb-wrapper" style="width: 100%; height: 120px; border-right: none; padding: 0;">
@@ -643,7 +644,7 @@
                     </div>
 
                     <!-- Rel 4: DJI Mavic Drone -->
-                    <div class="reference-expand-card" style="flex: 0 0 calc(25% - 14px); min-width: 230px; padding: 12px 14px;">
+                    <div class="reference-expand-card">
                         <span style="position: absolute; top: 12px; right: 12px; background: #e58840; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; z-index: 5;">Pro</span>
                         <div class="reference-card-top-content" style="flex-direction: column; align-items: center; text-align: center;">
                             <div class="reference-card-thumb-wrapper" style="width: 100%; height: 120px; border-right: none; padding: 0;">
@@ -674,7 +675,7 @@
                     </div>
 
                     <!-- Rel 5: Nikkor Lens -->
-                    <div class="reference-expand-card" style="flex: 0 0 calc(25% - 14px); min-width: 230px; padding: 12px 14px;">
+                    <div class="reference-expand-card">
                         <span style="position: absolute; top: 12px; right: 12px; background: #e58840; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; z-index: 5;">Optics</span>
                         <div class="reference-card-top-content" style="flex-direction: column; align-items: center; text-align: center;">
                             <div class="reference-card-thumb-wrapper" style="width: 100%; height: 120px; border-right: none; padding: 0;">
@@ -705,7 +706,7 @@
                     </div>
 
                     <!-- Rel 6: MacBook Pro -->
-                    <div class="reference-expand-card" style="flex: 0 0 calc(25% - 14px); min-width: 230px; padding: 12px 14px;">
+                    <div class="reference-expand-card">
                         <span style="position: absolute; top: 12px; right: 12px; background: #e58840; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 12px; z-index: 5;">Top Tier</span>
                         <div class="reference-card-top-content" style="flex-direction: column; align-items: center; text-align: center;">
                             <div class="reference-card-thumb-wrapper" style="width: 100%; height: 120px; border-right: none; padding: 0;">
@@ -735,6 +736,16 @@
                         </div>
                     </div>
 
+                        </div>
+
+                        <!-- Right Side Hover/Click Arrow (Positioned Safely Inside) -->
+                        <button type="button" class="related-side-arrow related-arrow-right" id="rel-side-next" aria-label="Next Product" title="Hover to slide right, click to step">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+                        </button>
+                    </div>
+
+                    <!-- Centered Interactive Dots Pagination -->
+                    <div class="related-carousel-dots" id="related-carousel-dots" aria-label="Related products pagination"></div>
                 </div>
             </main>
 
@@ -972,14 +983,9 @@
                 });
             }
 
-            // 6. Related Products Slider Controls
-            const relPrev = document.getElementById('rel-prev-btn');
-            const relNext = document.getElementById('rel-next-btn');
-            const relSlider = document.getElementById('related-products-slider');
-
-            if (relPrev && relNext && relSlider) {
-                relPrev.addEventListener('click', () => relSlider.scrollBy({ left: -280, behavior: 'smooth' }));
-                relNext.addEventListener('click', () => relSlider.scrollBy({ left: 280, behavior: 'smooth' }));
+            // 6. Related Products Slider Controls (Managed centrally by Electro with zero duplication)
+            if (window.Electro && window.Electro.initRelatedProductsHoverSlider) {
+                window.Electro.initRelatedProductsHoverSlider();
             }
         });
     </script>
