@@ -163,7 +163,7 @@
             <div class="nav-right-group">
                 <ul class="nav-menu">
                     <li><a href="index.html" class="nav-item">Home</a></li>
-                    <li><a href="offers.html" class="nav-item">Shop</a></li>
+                    <li><a href="shop.html" class="nav-item">Shop</a></li>
                     <li><a href="offers.html" class="nav-item">Offers</a></li>
                     <li><a href="single-product.html" class="nav-item">Single Page</a></li>
                     <li class="has-submenu nav-item-dropdown">
@@ -390,14 +390,10 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const existingUser = Electro.Auth.getCurrentUser();
-            if (existingUser) {
-                const card = document.querySelector('.auth-card');
-                if (card) {
-                    const notice = document.createElement('div');
-                    notice.style.cssText = 'background:#f0fdf4; border:1px solid #bbf7d0; border-radius:10px; padding:12px; margin-bottom:18px; text-align:center; font-size:13px; color:#166534;';
-                    notice.innerHTML = `You are currently logged in as <strong>${existingUser.name}</strong>. <a href="index.html" style="color:#e58840; font-weight:700; margin-left:6px; text-decoration:none;">Go To Home Page 🏠</a>`;
-                    card.insertBefore(notice, card.firstChild);
-                }
+            if (existingUser && !window.location.search.includes('force=true')) {
+                // Already authenticated: directly land on Home page as requested
+                window.location.replace('index.html');
+                return;
             }
 
             const tabLogin = document.getElementById('tab-btn-login');
@@ -426,32 +422,32 @@
             switchToReg.addEventListener('click', (e) => { e.preventDefault(); showRegister(); });
             switchToLog.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
 
-            // Handle Login Submit
+            // Handle Login Submit -> ALWAYS LAND ON INDEX (HOME PAGE)
             formLogin.addEventListener('submit', function (e) {
                 e.preventDefault();
-                const identifier = document.getElementById('login-identifier').value;
+                const identifier = document.getElementById('login-identifier').value.trim();
                 const password = document.getElementById('login-password').value;
 
                 const res = Electro.Auth.login(identifier, password);
                 if (res.success) {
                     Electro.showToast(`Welcome back, ${res.user.name}! 👋`, 'success');
                     setTimeout(() => {
-                        window.location.href = 'index.html';
-                    }, 800);
+                        window.location.replace('index.html');
+                    }, 600);
                 } else {
                     Electro.showToast(res.message, 'error');
                 }
             });
 
-            // Handle Register Submit
+            // Handle Register Submit -> ALWAYS LAND ON INDEX (HOME PAGE)
             formRegister.addEventListener('submit', function (e) {
                 e.preventDefault();
-                const name = document.getElementById('reg-name').value;
-                const username = document.getElementById('reg-username').value;
-                const phone = document.getElementById('reg-phone').value;
-                const email = document.getElementById('reg-email').value;
+                const name = document.getElementById('reg-name').value.trim();
+                const username = document.getElementById('reg-username').value.trim();
+                const phone = document.getElementById('reg-phone').value.trim();
+                const email = document.getElementById('reg-email').value.trim();
                 const favCat = document.getElementById('reg-favorite-cat').value;
-                const address = document.getElementById('reg-address').value;
+                const address = document.getElementById('reg-address').value.trim();
                 const password = document.getElementById('reg-password').value;
 
                 const res = Electro.Auth.register({
@@ -463,8 +459,8 @@
                 if (res.success) {
                     Electro.showToast(`Account created successfully! Welcome, ${res.user.name} 🎉`, 'success');
                     setTimeout(() => {
-                        window.location.href = 'index.html';
-                    }, 900);
+                        window.location.replace('index.html');
+                    }, 600);
                 } else {
                     Electro.showToast(res.message, 'error');
                 }

@@ -3950,7 +3950,43 @@
                 const searchInp = document.querySelector('.search-input');
                 const q = searchInp ? searchInp.value : '';
                 Search.filterAndDisplay(q, cat);
+                document.querySelectorAll('.nav-categories.is-open').forEach(el => el.classList.remove('is-open'));
             });
+        });
+
+        // Touch & Click toggle for Categories menu on mobile & desktop
+        const catTriggers = document.querySelectorAll('.nav-categories, #nav-categories-trigger');
+        catTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function (e) {
+                if (e.target.closest('.nav-cat-item')) return;
+                e.preventDefault();
+                e.stopPropagation();
+                this.classList.toggle('is-open');
+            });
+        });
+
+        // Touch & Click toggle for Pages dropdown menu
+        const dropdownNavItems = document.querySelectorAll('.nav-item-dropdown, .has-submenu');
+        dropdownNavItems.forEach(item => {
+            item.addEventListener('click', function (e) {
+                if (e.target.closest('.nav-dropdown-menu a')) return;
+                const link = item.querySelector('a');
+                if (link && (e.target === link || link.contains(e.target))) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    item.classList.toggle('is-open');
+                }
+            });
+        });
+
+        // Close open dropdowns when tapping anywhere outside
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.nav-categories')) {
+                document.querySelectorAll('.nav-categories.is-open').forEach(el => el.classList.remove('is-open'));
+            }
+            if (!e.target.closest('.nav-item-dropdown')) {
+                document.querySelectorAll('.nav-item-dropdown.is-open').forEach(el => el.classList.remove('is-open'));
+            }
         });
 
         // Click Event Delegation for Cart & Wishlist
@@ -4075,6 +4111,32 @@
                 let heroIdx = 0;
                 const totalSlides = slides.length;
 
+                // Build or find hero slider dots container
+                let dotsContainer = heroSection.querySelector('#hero-slider-dots') || heroSection.querySelector('.hero-slider-dots');
+                if (!dotsContainer && heroMainCard) {
+                    dotsContainer = document.createElement('div');
+                    dotsContainer.id = 'hero-slider-dots';
+                    dotsContainer.className = 'hero-slider-dots';
+                    heroMainCard.appendChild(dotsContainer);
+                }
+
+                if (dotsContainer) {
+                    dotsContainer.innerHTML = '';
+                    for (let d = 0; d < totalSlides; d++) {
+                        const dot = document.createElement('span');
+                        dot.className = 'hero-slider-dot' + (d === 0 ? ' is-active' : '');
+                        dot.setAttribute('data-dot-index', d);
+                        dot.setAttribute('aria-label', `Slide ${d + 1}`);
+                        dot.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            clearInterval(heroTimer);
+                            updateHeroSlide(d);
+                            restartTimer();
+                        });
+                        dotsContainer.appendChild(dot);
+                    }
+                }
+
                 function updateHeroSlide(idx) {
                     heroIdx = (idx + totalSlides) % totalSlides;
                     track.style.transform = 'translateX(-' + (heroIdx * 100) + '%)';
@@ -4085,6 +4147,12 @@
                             slide.classList.remove('is-active');
                         }
                     });
+                    if (dotsContainer) {
+                        const dots = dotsContainer.querySelectorAll('.hero-slider-dot');
+                        dots.forEach((dot, i) => {
+                            dot.classList.toggle('is-active', i === heroIdx);
+                        });
+                    }
                 }
 
                 // Initial slide setup
@@ -4348,6 +4416,7 @@
         if (!document.getElementById('blinkit-mobile-nav')) {
             const path = (window.location.pathname || '').toLowerCase();
             const isHome = path.endsWith('index.html') || path.endsWith('/') || !path.includes('.html');
+            const isShop = path.includes('shop.html');
             const isOffers = path.includes('offers.html');
             const isCart = path.includes('cart.html');
             const isProfile = path.includes('profile.html');
@@ -4368,7 +4437,7 @@
                     </div>
                     <span class="blinkit-tab-label">Home</span>
                 </a>
-                <a href="offers.html" class="blinkit-tab-item ${isOffers && !window.location.hash ? 'is-active' : ''}">
+                <a href="shop.html" class="blinkit-tab-item ${isShop ? 'is-active' : ''}">
                     <div class="blinkit-tab-icon">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="3" width="7" height="7"></rect>
@@ -4377,9 +4446,9 @@
                             <rect x="3" y="14" width="7" height="7"></rect>
                         </svg>
                     </div>
-                    <span class="blinkit-tab-label">Categories</span>
+                    <span class="blinkit-tab-label">Shop</span>
                 </a>
-                <a href="offers.html#deals" class="blinkit-tab-item blinkit-tab-deals">
+                <a href="offers.html#deals" class="blinkit-tab-item blinkit-tab-deals ${isOffers ? 'is-active' : ''}">
                     <div class="blinkit-tab-icon" style="position: relative;">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -4439,6 +4508,45 @@
                     </div>
                 `;
                 header.insertBefore(strip, header.firstChild);
+            }
+        }
+
+        // Add Quick Swipeable Category Chips on Mobile
+        if (!document.getElementById('blinkit-mobile-cat-chips') && window.innerWidth <= 768) {
+            const header = document.querySelector('header');
+            if (header) {
+                const chips = document.createElement('div');
+                chips.id = 'blinkit-mobile-cat-chips';
+                chips.className = 'blinkit-mobile-cat-chips';
+                const currentPath = (window.location.pathname || '').toLowerCase();
+                const isHome = currentPath.endsWith('index.html') || currentPath.endsWith('/') || !currentPath.includes('.html');
+                const cats = [
+                    { name: 'All Items', icon: '📱', key: 'all' },
+                    { name: 'Phones', icon: '📲', key: 'SmartPhone' },
+                    { name: 'Laptops', icon: '💻', key: 'Electronics' },
+                    { name: 'Audio', icon: '🎧', key: 'Audio' },
+                    { name: 'Cameras', icon: '📷', key: 'Photography' },
+                    { name: 'Gadgets', icon: '⌚', key: 'Accessories' }
+                ];
+                chips.innerHTML = cats.map(c => `
+                    <a href="shop.html?cat=${encodeURIComponent(c.key)}" class="blinkit-cat-chip" data-cat="${c.key}">
+                        <span>${c.icon}</span>
+                        <span>${c.name}</span>
+                    </a>
+                `).join('');
+                header.appendChild(chips);
+
+                chips.querySelectorAll('.blinkit-cat-chip').forEach(chip => {
+                    chip.addEventListener('click', function(e) {
+                        const cat = this.getAttribute('data-cat');
+                        if (isHome) {
+                            e.preventDefault();
+                            Search.filterAndDisplay('', cat);
+                            chips.querySelectorAll('.blinkit-cat-chip').forEach(c => c.classList.remove('is-active'));
+                            this.classList.add('is-active');
+                        }
+                    });
+                });
             }
         }
     }

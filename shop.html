@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Shop All Electronics - Electro Store</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="app-styles.css">
+    <style>
+        .shop-toolbar {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px 20px;
+            margin: 25px 0 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        .shop-cat-pills {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 2px;
+            scrollbar-width: none;
+        }
+        .shop-cat-pills::-webkit-scrollbar { display: none; }
+        .shop-pill-btn {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+        .shop-pill-btn:hover, .shop-pill-btn.is-active {
+            background: #e58840;
+            border-color: #e58840;
+            color: #ffffff;
+        }
+        .shop-filter-controls {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .shop-sort-select {
+            padding: 8px 14px;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: #1e293b;
+            background: #ffffff;
+            cursor: pointer;
+            outline: none;
+        }
+        .shop-product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        @media (max-width: 1024px) {
+            .shop-product-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .shop-toolbar {
+                padding: 12px 14px;
+                margin: 15px 0;
+            }
+            .shop-product-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+                margin-bottom: 75px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================================= -->
+    <!-- 1. TOP UTILITY BAR                                        -->
+    <!-- ========================================================= -->
+    <div class="top-bar">
+        <div class="container top-bar-container">
+            <div class="top-left">
+                <a href="contact.html" class="top-item">
+                    <svg class="icon icon-help" viewBox="0 0 512 512" width="11" height="11" fill="currentColor">
+                        <path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 448c-110.532 0-200-89.431-200-200 0-110.495 89.472-200 200-200 110.491 0 200 89.471 200 200 0 110.53-89.467 200-200 200zm107.2-220.8c-2.4-7.2-7.2-13.6-13.6-18.4l-72-54.4c-12-8.8-28.8-8.8-40.8 0l-72 54.4c-6.4 4.8-11.2 11.2-13.6 18.4-4.8 14.4 2.4 30.4 16.8 35.2 4.8 1.6 9.6 2.4 14.4 2.4 10.4 0 20-5.6 24.8-15.2l30.4-45.6V352c0 17.6 14.4 32 32 32s32-14.4 32-32V226.4l30.4 45.6c8 12 24 15.2 36 7.2 14.4-4.8 21.6-20.8 16.8-35.2z"/>
+                    </svg>
+                    <span data-i18n="top_help">Help</span>
+                </a>
+                <span class="divider">/</span>
+                <a href="contact.html" class="top-item" data-i18n="top_support">Support</a>
+                <span class="divider">/</span>
+                <a href="contact.html" class="top-item" data-i18n="top_contact">Contact</a>
+            </div>
+
+            <div class="top-center">
+                <a href="tel:+01234567890" class="top-item phone-link">
+                    <svg class="icon icon-phone" viewBox="0 0 384 512" width="11" height="11" fill="currentColor">
+                        <path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm112 432a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                    </svg>
+                    <span>+0123 456 7890</span>
+                </a>
+            </div>
+
+            <div class="top-right">
+                <div class="top-item dropdown top-select-wrapper" title="Select Currency">
+                    <select class="top-select-currency" id="currency-select" aria-label="Select Currency">
+                        <option value="USD">USD ($)</option>
+                        <option value="INR">INR (₹)</option>
+                        <option value="RUB">RUB (₽)</option>
+                        <option value="JPY">JPY (¥)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="AED">AED (د.إ)</option>
+                    </select>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <div class="top-item dropdown top-select-wrapper" title="Select Language">
+                    <select class="top-select-language" id="language-select" aria-label="Select Language">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी (Hindi)</option>
+                        <option value="ru">Русский (Russian)</option>
+                        <option value="ja">日本語 (Japanese)</option>
+                        <option value="es">Español (Spanish)</option>
+                        <option value="de">Deutsch (German)</option>
+                        <option value="ar">العربية (Arabic)</option>
+                    </select>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <a href="profile.html" class="top-item dashboard-link" style="text-decoration:none; color:inherit; display:flex; align-items:center; gap:5px;">
+                    <svg class="icon icon-home" viewBox="0 0 576 512" width="11" height="11" fill="currentColor">
+                        <path d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v73.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/>
+                    </svg>
+                    <span data-i18n="my_dashboard">My Dashboard</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- 2. MAIN HEADER (Logo, Search Bar, Quick Actions)          -->
+    <!-- ========================================================= -->
+    <header class="main-header">
+        <div class="container header-container">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon">
+                    <svg class="logo-svg" viewBox="0 0 32 34" width="30" height="32">
+                        <path fill="#d83131" d="M16 2 C11 2 8 5.5 8 10 L8 12 L12 12 L12 10 C12 7.8 13.8 6 16 6 C18.2 6 20 7.8 20 10 L20 12 L24 12 L24 10 C24 5.5 21 2 16 2 Z"/>
+                        <rect x="2" y="11" width="28" height="22" rx="3.5" fill="#d83131"/>
+                        <circle cx="10" cy="16.5" r="1.6" fill="#ffffff"/>
+                        <circle cx="22" cy="16.5" r="1.6" fill="#ffffff"/>
+                    </svg>
+                </div>
+                <span class="logo-name">Electro</span>
+            </a>
+
+            <!-- Search Area with Category Dropdown -->
+            <div class="search-wrapper">
+                <input type="text" class="search-input" placeholder="Search Shop Products..." id="shop-search-input">
+                <div class="category-dropdown" style="position:relative;">
+                    <select class="search-category-select" id="header-category-select" aria-label="Select Category">
+                        <option value="all">All Category</option>
+                        <option value="SmartPhone">Smartphones</option>
+                        <option value="Electronics">Electronics</option>
+                        <option value="Photography">Cameras &amp; Photo</option>
+                        <option value="Audio">Audio &amp; Studio</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                    <svg class="icon icon-down" viewBox="0 0 320 512" width="9" height="9" fill="currentColor">
+                        <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                    </svg>
+                </div>
+                <button type="button" class="search-btn" id="shop-search-btn" aria-label="Search">
+                    <svg class="icon icon-search" viewBox="0 0 512 512" width="16" height="16" fill="currentColor">
+                        <path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Action Controls: Compare, Wishlist, Cart -->
+            <div class="user-actions">
+                <a href="profile.html" class="action-circle" title="Compare Products">
+                    <svg class="icon icon-compare" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                        <path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.42l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.12z"/>
+                    </svg>
+                </a>
+                <a href="profile.html#liked" class="action-circle" title="Wishlist">
+                    <svg class="icon icon-heart" viewBox="0 0 24 24" width="15" height="15" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </a>
+                <a href="cart.html" class="action-cart" title="Shopping Cart" style="position:relative;">
+                    <svg class="icon icon-cart" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                    <span class="cart-total" data-cart-total>$0.00</span>
+                    <span class="header-cart-badge" data-cart-count style="display:none;">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================================= -->
+    <!-- 3. NAVIGATION BAR (Ribbon Menu)                           -->
+    <!-- ========================================================= -->
+    <nav class="nav-ribbon">
+        <div class="container nav-container">
+            <div class="nav-categories" id="nav-categories-trigger">
+                <svg class="icon icon-bars" viewBox="0 0 448 512" width="16" height="16" fill="currentColor">
+                    <path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/>
+                </svg>
+                <span class="categories-title" data-i18n="nav_all_categories">All Categories</span>
+                <div class="nav-categories-menu" id="nav-categories-dropdown">
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="all">📱 All Categories</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="SmartPhone">📲 Smartphones &amp; Tablets</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Photography">📷 Cameras &amp; Photography</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Electronics">💻 Laptops &amp; Computers</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Audio">🎧 Audio &amp; Headphones</a>
+                    <a href="javascript:void(0)" class="nav-cat-item" data-category="Accessories">⌚ Gadget Accessories</a>
+                </div>
+            </div>
+
+            <div class="nav-right-group">
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-item">Home</a></li>
+                    <li><a href="shop.html" class="nav-item active">Shop</a></li>
+                    <li><a href="offers.html" class="nav-item">Offers</a></li>
+                    <li><a href="single-product.html" class="nav-item">Single Page</a></li>
+                    <li class="has-submenu nav-item-dropdown">
+                        <a href="#" class="nav-item">
+                            <span>Pages</span>
+                            <svg class="icon icon-down" viewBox="0 0 320 512" width="8" height="8" fill="currentColor">
+                                <path d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/>
+                            </svg>
+                        </a>
+                        <div class="nav-dropdown-menu">
+                            <a href="single-product.html">Single Product</a>
+                            <a href="contact.html">Contact Us</a>
+                            <a href="cart.html">Cart Page</a>
+                            <a href="cart.html#checkout">Checkout</a>
+                            <a href="profile.html">User Profile</a>
+                            <a href="auth.html">Login / Sign Up</a>
+                            <a href="offers.html">Offers Page</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html" class="nav-item">Contact</a></li>
+                </ul>
+
+                <div class="nav-hotline">
+                    <a href="tel:+01234567890" class="hotline-pill">
+                        <svg class="icon icon-phone" viewBox="0 0 384 512" width="12" height="12" fill="currentColor">
+                            <path d="M80 0C44.7 0 16 28.7 16 64V448c0 35.3 28.7 64 64 64H304c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H80zm112 432a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/>
+                        </svg>
+                        <span>+0123 456 7890</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========================================================= -->
+    <!-- 4. DARK HERO BANNER                                       -->
+    <!-- ========================================================= -->
+    <section class="page-hero-banner">
+        <div class="container">
+            <h1 class="page-hero-title">Electro Shop</h1>
+            <div class="page-hero-breadcrumb">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Shop</span>
+                <span>/</span>
+                <span>All Electronic Products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 5. SHOP CATALOG & FILTERS                                 -->
+    <!-- ========================================================= -->
+    <main class="container">
+        
+        <!-- Filter Toolbar -->
+        <div class="shop-toolbar">
+            <div class="shop-cat-pills" id="shop-cat-pills">
+                <button class="shop-pill-btn is-active" data-cat="all">All Products</button>
+                <button class="shop-pill-btn" data-cat="SmartPhone">📲 Smartphones</button>
+                <button class="shop-pill-btn" data-cat="Electronics">💻 Laptops &amp; PCs</button>
+                <button class="shop-pill-btn" data-cat="Audio">🎧 Audio &amp; Sound</button>
+                <button class="shop-pill-btn" data-cat="Photography">📷 Cameras</button>
+                <button class="shop-pill-btn" data-cat="Accessories">⌚ Accessories</button>
+            </div>
+
+            <div class="shop-filter-controls">
+                <span id="shop-result-count" style="font-size: 13.5px; font-weight: 700; color: #64748b;">Showing 13 products</span>
+                <select class="shop-sort-select" id="shop-sort-select">
+                    <option value="featured">Featured First</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Top Customer Rated</option>
+                    <option value="name">Name (A-Z)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Dynamic Product Grid (Desktop 4-Col, Mobile 2-Col Blinkit Style) -->
+        <div class="shop-product-grid" id="shop-grid">
+            <!-- Rendered by JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- 6. UNIVERSAL MASTER FOOTER                                -->
+    <!-- ========================================================= -->
+    <footer class="master-footer">
+        <div class="master-footer-top-strip">
+            <div class="container">
+                <div class="master-footer-contact-grid">
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg></div>
+                        <h4 class="master-footer-card-title">Address</h4>
+                        <p class="master-footer-card-sub">123 Street New York, USA</p>
+                    </div>
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+                        <h4 class="master-footer-card-title">Mail Us</h4>
+                        <p class="master-footer-card-sub">info@example.com</p>
+                    </div>
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
+                        <h4 class="master-footer-card-title">Telephone</h4>
+                        <p class="master-footer-card-sub">(+012) 3456 7890</p>
+                    </div>
+                    <div class="master-footer-contact-card">
+                        <div class="master-footer-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></div>
+                        <h4 class="master-footer-card-title">Yoursite@ex.com</h4>
+                        <p class="master-footer-card-sub">(+012) 3456 7890</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="master-footer-main">
+            <div class="container">
+                <div class="master-footer-columns">
+                    <div>
+                        <h3 class="master-footer-col-title">Newsletter</h3>
+                        <p class="master-footer-col-text">Dolor amet sit justo amet elitr clita ipsum elitr est. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <form class="master-footer-newsletter-form" onsubmit="event.preventDefault(); Electro.showToast('Thank you for subscribing!', 'success');">
+                            <input type="email" placeholder="Enter your email" required class="master-footer-newsletter-input">
+                            <button type="submit" class="master-footer-newsletter-btn">SignUp</button>
+                        </form>
+                    </div>
+                    <div>
+                        <h3 class="master-footer-col-title">Customer Service</h3>
+                        <ul class="master-footer-link-list">
+                            <li><a href="contact.html">Contact Us</a></li>
+                            <li><a href="profile.html">Returns</a></li>
+                            <li><a href="profile.html#orders">Order History</a></li>
+                            <li><a href="shop.html">Site Map</a></li>
+                            <li><a href="profile.html">Testimonials</a></li>
+                            <li><a href="profile.html">My Account</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="master-footer-col-title">Information</h3>
+                        <ul class="master-footer-link-list">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Delivery Information</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms &amp; Conditions</a></li>
+                            <li><a href="#">Warranty</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="master-footer-col-title">Extras</h3>
+                        <ul class="master-footer-link-list">
+                            <li><a href="shop.html">Brands</a></li>
+                            <li><a href="offers.html">Gift Vouchers</a></li>
+                            <li><a href="#">Affiliates</a></li>
+                            <li><a href="profile.html#liked">Wishlist</a></li>
+                            <li><a href="profile.html#orders">Order History</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="master-footer-bottom-bar">
+            <div class="container master-footer-bottom-flex">
+                <p>&copy; <strong>Electro</strong>. All right reserved.</p>
+                <p>Designed By HTML Codex. Distributed By ThemeWagon. <span class="master-saksham-badge">Made by Saksham</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="electro-core.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const grid = document.getElementById('shop-grid');
+            const pills = document.querySelectorAll('.shop-pill-btn');
+            const sortSelect = document.getElementById('shop-sort-select');
+            const searchInput = document.getElementById('shop-search-input');
+            const searchBtn = document.getElementById('shop-search-btn');
+            const resultCountEl = document.getElementById('shop-result-count');
+
+            let currentCategory = 'all';
+            let currentSearch = '';
+            let currentSort = 'featured';
+
+            // Check URL parameters for category or query
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('cat')) {
+                currentCategory = urlParams.get('cat');
+                pills.forEach(p => {
+                    if (p.getAttribute('data-cat').toLowerCase() === currentCategory.toLowerCase()) {
+                        p.classList.add('is-active');
+                    } else {
+                        p.classList.remove('is-active');
+                    }
+                });
+            }
+            if (urlParams.has('search')) {
+                currentSearch = urlParams.get('search');
+                if (searchInput) searchInput.value = currentSearch;
+            }
+
+            function renderProducts() {
+                let items = [...(Electro.PRODUCT_CATALOG || [])];
+
+                // Filter by category
+                if (currentCategory && currentCategory !== 'all') {
+                    items = items.filter(p => p.category.toLowerCase().includes(currentCategory.toLowerCase()));
+                }
+
+                // Filter by search query
+                if (currentSearch) {
+                    const q = currentSearch.toLowerCase();
+                    items = items.filter(p => p.name.toLowerCase().includes(q) || p.category.toLowerCase().includes(q));
+                }
+
+                // Sort items
+                if (currentSort === 'price-low') {
+                    items.sort((a, b) => a.price - b.price);
+                } else if (currentSort === 'price-high') {
+                    items.sort((a, b) => b.price - a.price);
+                } else if (currentSort === 'rating') {
+                    items.sort((a, b) => (b.rating || 5) - (a.rating || 5));
+                } else if (currentSort === 'name') {
+                    items.sort((a, b) => a.name.localeCompare(b.name));
+                }
+
+                if (resultCountEl) {
+                    resultCountEl.textContent = `Showing ${items.length} products`;
+                }
+
+                if (items.length === 0) {
+                    grid.innerHTML = `
+                        <div style="grid-column: 1 / -1; text-align:center; padding: 60px 20px; background:#f8fafc; border-radius:12px; border:1px dashed #cbd5e1;">
+                            <span style="font-size:42px; display:block; margin-bottom:10px;">🔍</span>
+                            <h3 style="font-size:18px; font-weight:700; color:#1e293b; margin-bottom:6px;">No Products Found</h3>
+                            <p style="font-size:14px; color:#64748b; margin-bottom:16px;">Try clearing search keywords or selecting another category.</p>
+                            <button type="button" class="shop-pill-btn is-active" id="btn-reset-filters">Show All Products</button>
+                        </div>
+                    `;
+                    const resetBtn = document.getElementById('btn-reset-filters');
+                    if (resetBtn) {
+                        resetBtn.addEventListener('click', () => {
+                            currentCategory = 'all';
+                            currentSearch = '';
+                            if (searchInput) searchInput.value = '';
+                            pills.forEach(p => p.classList.toggle('is-active', p.getAttribute('data-cat') === 'all'));
+                            renderProducts();
+                        });
+                    }
+                    return;
+                }
+
+                grid.innerHTML = items.map(product => {
+                    const isLiked = Electro.Wishlist.isLiked(product.id);
+                    const formattedPrice = Electro.Currency.formatPrice(product.price);
+                    const formattedOldPrice = product.oldPrice ? Electro.Currency.formatPrice(product.oldPrice) : '';
+
+                    return `
+                        <div class="offers-page-card" data-product-id="${product.id}">
+                            <div class="offers-page-img-box" style="position:relative; cursor:pointer;" onclick="window.location.href='single-product.html?id=${encodeURIComponent(product.id)}'">
+                                <img src="${product.img}" alt="${product.name}" class="offers-page-img" loading="lazy">
+                                <button type="button" class="offers-page-wishlist-btn ${isLiked ? 'is-liked' : ''}" data-product-id="${product.id}" title="Add to Wishlist" onclick="event.stopPropagation();">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="offers-page-card-body">
+                                <span class="offers-page-category">${product.category}</span>
+                                <h3 class="offers-page-product-title" onclick="window.location.href='single-product.html?id=${encodeURIComponent(product.id)}'" style="cursor:pointer;">
+                                    ${product.name}
+                                </h3>
+                                <div class="offers-page-rating">
+                                    ★★★★★ <span style="font-size:11px; color:#94a3b8;">(5.0)</span>
+                                </div>
+                                <div class="offers-page-prices">
+                                    <span class="offers-page-current-price" data-base-price="${product.price}">${formattedPrice}</span>
+                                    ${formattedOldPrice ? `<span class="offers-page-old-price" data-base-price="${product.oldPrice}">${formattedOldPrice}</span>` : ''}
+                                </div>
+                                <div class="offers-page-card-footer">
+                                    <button type="button" class="offers-page-add-btn" data-add-to-cart data-product-id="${product.id}">
+                                        <span>+ ADD</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                // Hook Wishlist heart clicks
+                grid.querySelectorAll('.offers-page-wishlist-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const id = this.getAttribute('data-product-id');
+                        const product = Electro.PRODUCT_CATALOG.find(p => p.id === id);
+                        if (product) {
+                            const liked = Electro.Wishlist.toggleLike(product);
+                            this.classList.toggle('is-liked', liked);
+                        }
+                    });
+                });
+
+                // Hook Add to Cart buttons
+                grid.querySelectorAll('[data-add-to-cart]').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const id = this.getAttribute('data-product-id');
+                        const product = Electro.PRODUCT_CATALOG.find(p => p.id === id);
+                        if (product) {
+                            Electro.Cart.addItem(product, 1);
+                        }
+                    });
+                });
+
+                Electro.Currency.updateAllPrices();
+            }
+
+            // Category Pill Clicks
+            pills.forEach(pill => {
+                pill.addEventListener('click', function () {
+                    pills.forEach(p => p.classList.remove('is-active'));
+                    this.classList.add('is-active');
+                    currentCategory = this.getAttribute('data-cat');
+                    renderProducts();
+                });
+            });
+
+            // Sorting Change
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function () {
+                    currentSort = this.value;
+                    renderProducts();
+                });
+            }
+
+            // Search Trigger
+            if (searchInput) {
+                searchInput.addEventListener('input', function () {
+                    currentSearch = this.value.trim();
+                    renderProducts();
+                });
+            }
+            if (searchBtn) {
+                searchBtn.addEventListener('click', function () {
+                    currentSearch = (searchInput ? searchInput.value : '').trim();
+                    renderProducts();
+                });
+            }
+
+            // Initial render
+            renderProducts();
+        });
+    </script>
+</body>
+</html>
