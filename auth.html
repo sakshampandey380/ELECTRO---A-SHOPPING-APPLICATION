@@ -257,7 +257,7 @@
                     <label class="form-label">Username *</label>
                     <input type="text" class="form-control" id="reg-username" placeholder="saksham" required>
                 </div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px;">
+                <div class="auth-grid-2col" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:16px;">
                     <div>
                         <label class="form-label">Phone Number *</label>
                         <input type="tel" class="form-control" id="reg-phone" placeholder="+91 9876543210" required>
@@ -389,10 +389,15 @@
     <script src="electro-core.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const redirectParam = urlParams.get('redirect');
+            const targetRedirect = redirectParam ? redirectParam : 'index.html';
+            const initialMode = urlParams.get('mode');
+
             const existingUser = Electro.Auth.getCurrentUser();
             if (existingUser && !window.location.search.includes('force=true')) {
-                // Already authenticated: directly land on Home page as requested
-                window.location.replace('index.html');
+                // Already authenticated: redirect to destination or Home page
+                window.location.replace(targetRedirect);
                 return;
             }
 
@@ -417,12 +422,18 @@
                 formLogin.style.display = 'none';
             }
 
+            if (initialMode === 'register') {
+                showRegister();
+            } else {
+                showLogin();
+            }
+
             tabLogin.addEventListener('click', showLogin);
             tabRegister.addEventListener('click', showRegister);
             switchToReg.addEventListener('click', (e) => { e.preventDefault(); showRegister(); });
             switchToLog.addEventListener('click', (e) => { e.preventDefault(); showLogin(); });
 
-            // Handle Login Submit -> ALWAYS LAND ON INDEX (HOME PAGE)
+            // Handle Login Submit
             formLogin.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const identifier = document.getElementById('login-identifier').value.trim();
@@ -432,14 +443,14 @@
                 if (res.success) {
                     Electro.showToast(`Welcome back, ${res.user.name}! 👋`, 'success');
                     setTimeout(() => {
-                        window.location.replace('index.html');
+                        window.location.replace(targetRedirect);
                     }, 600);
                 } else {
                     Electro.showToast(res.message, 'error');
                 }
             });
 
-            // Handle Register Submit -> ALWAYS LAND ON INDEX (HOME PAGE)
+            // Handle Register Submit
             formRegister.addEventListener('submit', function (e) {
                 e.preventDefault();
                 const name = document.getElementById('reg-name').value.trim();
@@ -459,7 +470,7 @@
                 if (res.success) {
                     Electro.showToast(`Account created successfully! Welcome, ${res.user.name} 🎉`, 'success');
                     setTimeout(() => {
-                        window.location.replace('index.html');
+                        window.location.replace(targetRedirect);
                     }, 600);
                 } else {
                     Electro.showToast(res.message, 'error');

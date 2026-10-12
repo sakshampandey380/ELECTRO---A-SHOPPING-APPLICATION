@@ -2918,7 +2918,7 @@
                 password: 'password123'
             };
             setStoredData(STORAGE_KEYS.USERS, [defaultUser]);
-            setStoredData(STORAGE_KEYS.CURRENT_USER, defaultUser);
+            // CURRENT_USER is left null so fresh visits remain guest state
         }
 
         const orders = getStoredData(STORAGE_KEYS.ORDERS, null);
@@ -3857,9 +3857,22 @@
         });
     }
 
+    function checkRouteGuards() {
+        const path = window.location.pathname.toLowerCase();
+        if (path.endsWith('profile.html')) {
+            const user = Auth.getCurrentUser();
+            if (!user) {
+                window.location.replace('auth.html?redirect=profile.html');
+            }
+        }
+    }
+
     function updateNavProfile() {
         const user = Auth.getCurrentUser();
         const profileLinks = document.querySelectorAll('.dashboard-link, .nav-my-dashboard, [data-profile-link]');
+        const signInText = (typeof I18n !== 'undefined' && I18n.get) ? I18n.get('Sign In') : 'Sign In';
+        const signUpText = (typeof I18n !== 'undefined' && I18n.get) ? I18n.get('Sign Up') : 'Sign Up';
+
         profileLinks.forEach(link => {
             if (user) {
                 link.innerHTML = `
@@ -3872,9 +3885,15 @@
                 link.setAttribute('href', 'profile.html');
                 link.setAttribute('title', `Logged in as ${user.name}`);
             } else {
-                link.innerHTML = `<span>My Dashboard</span>`;
-                link.setAttribute('href', 'auth.html');
-                link.setAttribute('title', 'Sign In or Register');
+                link.innerHTML = `
+                    <span class="top-guest-actions">
+                        <span class="top-auth-link top-auth-login" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='auth.html?mode=login';">${signInText}</span>
+                        <span class="top-auth-sep">/</span>
+                        <span class="top-auth-link top-auth-register" onclick="event.preventDefault(); event.stopPropagation(); window.location.href='auth.html?mode=register';">${signUpText}</span>
+                    </span>
+                `;
+                link.setAttribute('href', 'auth.html?mode=login');
+                link.setAttribute('title', `${signInText} / ${signUpText}`);
             }
         });
     }
@@ -4575,11 +4594,12 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         initSeedData();
+        checkRouteGuards();
         setupGlobalListeners();
         updateNavCartBadge();
-        updateNavProfile();
         Currency.updateAllPrices();
         I18n.translatePage();
+        updateNavProfile();
         Wishlist.updateWishlistUI();
         initDynamicProductRotators();
         Search.checkURLParams();

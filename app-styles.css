@@ -765,13 +765,17 @@
 
 .form-control {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 44px;
     border: 1px solid var(--border-light);
     border-radius: 8px;
     padding: 10px 14px;
-    font-size: 13.5px;
+    font-size: 14px;
     outline: none;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     background-color: #ffffff;
+    box-sizing: border-box;
 }
 
 .form-control:focus {
@@ -849,8 +853,13 @@
     border-radius: 25px;
     font-size: 14px;
     font-weight: 700;
+    min-height: 44px;
     padding: 12px 36px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     box-shadow: 0 4px 12px rgba(229, 136, 64, 0.35);
     transition: background-color 0.2s ease, transform 0.2s ease;
     margin-top: 10px;
@@ -904,12 +913,15 @@
    5. AUTHENTICATION (SIGN IN & SIGN UP) PAGE (auth.html)
    ========================================================================== */
 .auth-page-wrapper {
-    max-width: 540px;
-    margin: 40px auto 80px auto;
+    width: clamp(290px, 92%, 520px);
+    max-width: 100%;
+    min-width: 0;
+    margin: 30px auto 60px auto;
     background: #ffffff;
     border: 1px solid var(--border-light);
     border-radius: 14px;
-    padding: 36px;
+    padding: clamp(20px, 5vw, 36px);
+    box-sizing: border-box;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
 }
 
@@ -949,6 +961,7 @@
 
 .btn-auth-submit {
     width: 100%;
+    min-height: 44px;
     background-color: var(--primary-orange);
     color: #ffffff;
     border: none;
@@ -958,6 +971,10 @@
     padding: 12px;
     cursor: pointer;
     margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     box-shadow: 0 4px 12px rgba(229, 136, 64, 0.35);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -1177,6 +1194,7 @@
 
 .btn-checkout-order {
     width: 100%;
+    min-height: 44px;
     background-color: var(--primary-orange);
     color: #ffffff;
     border: none;
@@ -1186,6 +1204,10 @@
     padding: 12px;
     cursor: pointer;
     margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     box-shadow: 0 4px 12px rgba(229, 136, 64, 0.35);
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -1398,6 +1420,39 @@
     padding: 1px 6px;
     border-radius: 10px;
     letter-spacing: 0.4px;
+}
+
+/* Header Guest Actions in Top Bar */
+.top-guest-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.top-auth-link {
+    cursor: pointer;
+    transition: color 0.15s ease;
+    color: inherit;
+    text-decoration: none;
+    padding: 2px 4px;
+}
+
+.top-auth-link:hover {
+    color: var(--primary-orange);
+}
+
+.top-auth-register {
+    color: var(--primary-orange);
+    font-weight: 700;
+}
+
+.top-auth-sep {
+    color: #94a3b8;
+    font-size: 11px;
+    margin: 0 1px;
+    user-select: none;
 }
 
 /* ==========================================================================
@@ -2794,7 +2849,7 @@ body.body-searching .hide-on-search {
 
     .search-input {
         height: 42px !important;
-        font-size: 13.5px !important;
+        font-size: 16px !important;
         border-radius: 12px 0 0 12px !important;
         background: transparent !important;
         padding-left: 14px !important;
@@ -2883,20 +2938,48 @@ body.body-searching .hide-on-search {
         border-radius: 4px !important;
     }
 
-    /* Blinkit-Style 2-Column Product Grid on Mobile */
+    /* Mobile Input Font Size Guard (Prevents iOS Safari auto-zoom) */
+    input, select, textarea, .form-control {
+        font-size: 16px !important;
+    }
+
+    /* Clean, Compact Multi-Column Product Grids on Mobile (< 768px) */
     .reference-catalog-grid:not(.related-products-slider-track),
-    .offers-page-grid {
+    .offers-page-grid,
+    .shop-product-grid,
+    .search-results-grid,
+    .amazon-search-grid,
+    .profile-liked-grid {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         gap: 10px !important;
         padding: 10px 0 !important;
         width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    @media (min-width: 580px) and (max-width: 768px) {
+        .reference-catalog-grid:not(.related-products-slider-track),
+        .offers-page-grid,
+        .shop-product-grid,
+        .search-results-grid,
+        .amazon-search-grid,
+        .profile-liked-grid {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 12px !important;
+        }
     }
 
     .reference-expand-card:not(.related-products-slider-track *),
-    .offers-page-card {
+    .offers-page-card,
+    .amazon-product-card,
+    .liked-card {
         min-width: 0 !important;
         width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        height: 100% !important;
         border-radius: 12px !important;
         padding: 10px !important;
         margin: 0 !important;
@@ -2907,37 +2990,52 @@ body.body-searching .hide-on-search {
     }
 
     .reference-card-thumb,
-    .offers-page-img {
-        height: 105px !important;
+    .offers-page-img,
+    .amazon-card-img-wrap img,
+    .liked-card-img,
+    .offers-page-img-box img {
+        aspect-ratio: 1 / 1 !important;
+        height: auto !important;
+        max-height: 130px !important;
+        width: 100% !important;
         object-fit: contain !important;
     }
 
     .reference-card-prod-title,
-    .offers-page-product-title {
+    .offers-page-product-title,
+    .amazon-card-title,
+    .liked-card-title {
         font-size: 12.5px !important;
         line-height: 1.35 !important;
-        height: 34px !important;
+        height: 36px !important;
         overflow: hidden !important;
+        text-overflow: ellipsis !important;
         display: -webkit-box !important;
         -webkit-line-clamp: 2 !important;
         -webkit-box-orient: vertical !important;
+        margin-bottom: 6px !important;
     }
 
-    /* Blinkit Iconic ADD Button on Mobile */
+    /* Mobile Add to Cart & Action Triggers: 44px min-height touch target */
     .reference-card-hover-drawer,
-    .offers-page-card-footer {
+    .offers-page-card-footer,
+    .liked-card-actions {
         display: flex !important;
         opacity: 1 !important;
         visibility: visible !important;
         transform: none !important;
         position: static !important;
-        margin-top: 8px !important;
+        margin-top: auto !important;
+        padding-top: 8px !important;
         width: 100% !important;
     }
 
     .reference-drawer-add-cart,
-    .offers-page-add-btn {
+    .offers-page-add-btn,
+    .amazon-btn-add-cart,
+    .btn-liked-add-cart {
         width: 100% !important;
+        min-height: 44px !important;
         background: #fff7ed !important;
         border: 1.5px solid #e58840 !important;
         color: #e58840 !important;
@@ -2951,11 +3049,15 @@ body.body-searching .hide-on-search {
         justify-content: center !important;
         text-decoration: none !important;
         gap: 6px !important;
+        touch-action: manipulation !important;
         transition: all 0.2s ease !important;
+        box-sizing: border-box !important;
     }
 
     .reference-drawer-add-cart:active,
-    .offers-page-add-btn:active {
+    .offers-page-add-btn:active,
+    .amazon-btn-add-cart:active,
+    .btn-liked-add-cart:active {
         background: #e58840 !important;
         color: #ffffff !important;
         transform: scale(0.97) !important;
