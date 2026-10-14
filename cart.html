@@ -227,7 +227,7 @@
                     <button type="button" id="btn-clear-cart" style="background:none; border:none; color:#ef4444; font-size:13px; font-weight:700; cursor:pointer;">Clear All</button>
                 </div>
 
-                <div style="overflow-x: auto;">
+                <div style="overflow-x: auto; width: 100%;" id="cart-table-wrapper">
                     <table class="orders-table">
                         <thead>
                             <tr>
@@ -245,9 +245,11 @@
                 </div>
 
                 <!-- Empty State Message -->
-                <div id="cart-empty-message" style="display:none; text-align:center; padding:50px 20px;">
-                    <p style="font-size:16px; color:#64748b; margin-bottom:18px;">Your shopping cart is currently empty.</p>
-                    <a href="offers.html" class="btn-contact-submit" style="text-decoration:none; display:inline-block;">Explore Offers &amp; Products</a>
+                <div id="cart-empty-message" style="display:none; text-align:center; padding:45px 16px;">
+                    <div style="width:72px; height:72px; background:#fff7ed; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:14px; font-size:32px;">🛒</div>
+                    <h3 style="font-size:18px; font-weight:800; color:#1e293b; margin-bottom:6px;">Your Cart is Empty</h3>
+                    <p style="font-size:13.5px; color:#64748b; margin-bottom:20px; max-width:300px; margin-left:auto; margin-right:auto;">Add top-rated electronics and deals to your cart to start shopping.</p>
+                    <a href="offers.html" class="btn-contact-submit" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center; padding:12px 28px; border-radius:30px; font-weight:700; min-height:44px;">Explore Offers &amp; Products</a>
                 </div>
             </div>
 
@@ -417,17 +419,27 @@
                 totalEl.textContent = Electro.formatPrice(subtotal);
                 totalEl.setAttribute('data-base-price', subtotal);
 
+                const tableWrapper = document.getElementById('cart-table-wrapper');
+
                 if (items.length === 0) {
-                    tbody.innerHTML = '';
-                    emptyMsg.style.display = 'block';
-                    document.getElementById('btn-place-order').disabled = true;
-                    document.getElementById('btn-place-order').style.opacity = '0.5';
+                    if (tbody) tbody.innerHTML = '';
+                    if (tableWrapper) tableWrapper.style.display = 'none';
+                    if (emptyMsg) emptyMsg.style.display = 'block';
+                    const placeOrderBtn = document.getElementById('btn-place-order');
+                    if (placeOrderBtn) {
+                        placeOrderBtn.disabled = true;
+                        placeOrderBtn.style.opacity = '0.5';
+                    }
                     return;
                 }
 
-                emptyMsg.style.display = 'none';
-                document.getElementById('btn-place-order').disabled = false;
-                document.getElementById('btn-place-order').style.opacity = '1';
+                if (tableWrapper) tableWrapper.style.display = 'block';
+                if (emptyMsg) emptyMsg.style.display = 'none';
+                const placeOrderBtn = document.getElementById('btn-place-order');
+                if (placeOrderBtn) {
+                    placeOrderBtn.disabled = false;
+                    placeOrderBtn.style.opacity = '1';
+                }
 
                 tbody.innerHTML = items.map(item => `
                     <tr>

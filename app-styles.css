@@ -1156,6 +1156,9 @@
     grid-template-columns: 1fr 360px;
     gap: 36px;
     margin-bottom: 70px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .cart-items-card {
@@ -1164,6 +1167,9 @@
     border-radius: 12px;
     padding: 28px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .cart-summary-card {
@@ -1173,6 +1179,9 @@
     padding: 28px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
     align-self: start;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .cart-summary-row {
@@ -1594,12 +1603,110 @@
         margin-top: 10px;
     }
 
-    .orders-table {
+    /* Mobile Cart Page Card & Table Enhancements */
+    .cart-page-layout {
+        grid-template-columns: 100% !important;
+        gap: 16px !important;
+        margin-bottom: 95px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .cart-items-card,
+    .cart-summary-card {
+        padding: 18px 14px !important;
+        border-radius: 12px !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+    }
+
+    #cart-table-wrapper {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Transform Cart items table into 100% width responsive mobile cards */
+    .cart-items-card .orders-table {
+        min-width: 0 !important;
+        width: 100% !important;
+        display: block !important;
+    }
+
+    /* Hide the <th> header entirely on mobile so it NEVER overflows or clips */
+    .cart-items-card .orders-table thead {
+        display: none !important;
+    }
+
+    .cart-items-card .orders-table tbody {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .cart-items-card .orders-table tr {
+        display: grid !important;
+        grid-template-columns: 1fr auto !important;
+        align-items: center !important;
+        gap: 8px 10px !important;
+        background: #f8fafc !important;
+        border: 1px solid #e2e8f0 !important;
+        border-radius: 10px !important;
+        padding: 12px !important;
+        position: relative !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .cart-items-card .orders-table td {
+        padding: 0 !important;
+        border: none !important;
+        white-space: normal !important;
+    }
+
+    /* Product row (image + name + category) */
+    .cart-items-card .orders-table td:nth-child(1) {
+        grid-column: 1 / -1 !important;
+        padding-right: 28px !important;
+    }
+
+    /* Unit price hidden in mobile card (clearly displayed in subtotal) */
+    .cart-items-card .orders-table td:nth-child(2) {
+        display: none !important;
+    }
+
+    /* Quantity Counter */
+    .cart-items-card .orders-table td:nth-child(3) {
+        grid-column: 1 !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Subtotal Price */
+    .cart-items-card .orders-table td:nth-child(4) {
+        grid-column: 2 !important;
+        text-align: right !important;
+        font-size: 15px !important;
+    }
+
+    /* Remove X Button in Top Right */
+    .cart-items-card .orders-table td:nth-child(5) {
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+    }
+
+    .profile-card .orders-table {
         min-width: 580px !important;
         font-size: 13px !important;
     }
 
-    .orders-table th, .orders-table td {
+    .profile-card .orders-table th, .profile-card .orders-table td {
         padding: 10px 10px !important;
         white-space: nowrap !important;
     }
